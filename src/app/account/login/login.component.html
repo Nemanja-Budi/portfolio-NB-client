@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center">
+    <div class="col-12 col-lg-5">
+        <main class="form-signin">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="text-center mb-4">
+                    <h3 class="mb-3 font-weight-normal">Login</h3>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        placeholder="Username (your email address)" 
+                        class="form-control" 
+                        formControlName="userName"
+                        [class.is-invalid]="submited && loginForm.get('userName')?.errors">
+                    <label for="userName">Username (your email address)</label>
+                    <span 
+                        class="text-danger" 
+                        *ngIf="submited && loginForm.get('userName')?.hasError('required')">
+                            Username is required
+                    </span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="password" 
+                        placeholder="Password" 
+                        class="form-control" 
+                        formControlName="password"
+                        [class.is-invalid]="submited && loginForm.get('password')?.errors">
+                    <label for="password">Password</label>
+                    <span 
+                        class="text-danger" 
+                        *ngIf="submited && loginForm.get('password')?.hasError('required')">
+                            Password is required
+                    </span>
+                </div>
+                <div class="form-floating" *ngIf="errorMessages.length > 0">
+                    <!-- <app-validation-messages [errorMessages]="errorMessages"></app-validation-messages> -->
+                    <a class="btn btn-link" (click)="resendEmailConfirmationLink()" *ngIf="errorMessages[0].includes('Plase confirm your email')">
+                        Click here to resend email confirmation link in case you didn't recive it.
+                    </a>
+                </div>
+                <div class="d-grid mt-4 px-1">
+                    <button class="btn btn-lg btn-info" type="submit">Log in</button>
+                </div>
+            </form>
+            <div class="mt-4 text-center">
+                <a class="btn btn-link" routerLink="/account/send-email/forgot-username-or-password">
+                    <h6>Forgot username or password</h6>
+                </a>
+            </div>
+        </main>
+    </div>
+</div>

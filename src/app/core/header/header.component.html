@@ -1,0 +1,14 @@
+<nav>
+    <ul style="display: flex; justify-content: space-between; list-style: none;">
+        <div style="display: flex; gap: 1rem; text-decoration: none;"> 
+            <li><a routerLink="/main/home">Home</a></li>
+            <li><a routerLink="/main/about">About</a></li>
+            <li><a routerLink="/main/portfolio">Portfolio</a></li>
+            <li><a routerLink="/main/contact">Contact</a></li>
+        </div>
+        <div>
+            <a  *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a>
+            <button *ngIf="(accountService.user$ | async)as user" (click)="onLogout()">Logout</button>
+        </div>
+    </ul>
+</nav>
