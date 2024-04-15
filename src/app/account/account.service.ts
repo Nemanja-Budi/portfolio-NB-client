@@ -31,7 +31,7 @@ export class AccountService {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + jwt);
 
-    return this.httpClient.get<User>(`${environment.appUrl}/api/account/refresh-user-token`, {headers}).pipe(
+    return this.httpClient.get<User>(`${environment.appUrl}/account/refresh-user-token`, {headers}).pipe(
       map((user: User) => {
         if(user) {
           this.setUser(user);
@@ -41,11 +41,11 @@ export class AccountService {
   }
 
   register(registerModel: Register): Observable<Register> {
-    return this.httpClient.post<Register>(`${environment.appUrl}/api/account/register`, registerModel);
+    return this.httpClient.post<Register>(`${environment.appUrl}/account/register`, registerModel);
   }
 
   login(loginModel: Login) {
-    return this.httpClient.post<User>(`${environment.appUrl}/api/account/login`, loginModel).pipe(
+    return this.httpClient.post<User>(`${environment.appUrl}/account/login`, loginModel).pipe(
       map((user: User) => {
         if(user) {
           this.setUser(user)

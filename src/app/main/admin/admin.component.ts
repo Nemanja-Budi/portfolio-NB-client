@@ -14,8 +14,8 @@ export class AdminComponent {
 
   contacts: Observable<Contact[]> = this.mainService.getContacts();
 
-  onGetContact(contact_id: string): void {
-    this.mainService.getContact(contact_id).subscribe({
+  onDeleteContact(contact_id: string): void {
+    this.mainService.deleteContact(contact_id).subscribe({
       next: (response) => console.log(response)
     });
   }
