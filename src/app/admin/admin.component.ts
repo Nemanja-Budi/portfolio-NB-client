@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { MainService } from '../main.service';
+import { MainService } from '../main/main.service';
 import { Observable } from 'rxjs';
-import { Contact } from '../models/contact.model';
+import { Contact } from '../main/models/contact.model';
 
 @Component({
   selector: 'app-admin',

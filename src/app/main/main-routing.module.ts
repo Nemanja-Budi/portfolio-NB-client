@@ -4,8 +4,6 @@ import { AboutComponent } from './about/about.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
-import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 
 
 const routes: Routes = [

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { AdminComponent } from './admin/admin.component';
 import { ContactComponent } from './contact/contact.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { AccountModule } from '../account/account.module';
@@ -17,7 +16,6 @@ import { AccountModule } from '../account/account.module';
     AboutComponent,
     PortfolioComponent,
     ContactComponent,
-    AdminComponent,
   ],
   imports: [
     CommonModule,
