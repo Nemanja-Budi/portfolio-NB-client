@@ -11,12 +11,12 @@ import { CustomQueryParamas } from '../shared/models/custom-queryparams.model';
 export class MainService {
 
   quearyParams: CustomQueryParamas = {
-    filterOn: '',
+    filterOn: 'NameOfCompany',
     filterQuery: '',
-    sortBy: '',
+    sortBy: 'NameOfCompany',
     isAscending: false,
     pageNumber: 1,
-    pageSize: 3
+    pageSize: 5
   }
 
   quearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.quearyParams);
@@ -31,9 +31,10 @@ export class MainService {
           params: new HttpParams()
             .set('filterOn', params.filterOn || "")
             .set('filterQuery', params.filterQuery || "")
+            .set('sortBy', params.sortBy || "")
             .set('isAscending', params.isAscending)
             .set('pageNumber', params.pageNumber || 1)
-            .set('pageSize', params.pageSize || 1) 
+            .set('pageSize', params.pageSize || 5) 
         };
         return this.http.get<Contact[]>(`${environment.appUrl}/contacts/get-contacts`, options);
       })
