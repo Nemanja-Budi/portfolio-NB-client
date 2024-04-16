@@ -4,6 +4,7 @@ import { AdminContactManagerComponent } from './admin-contact-manager/admin-cont
 import { AdminUserManagerComponent } from './admin-user-manager/admin-user-manager.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
+import { UserHasRoleDirective } from '../shared/directives/user-has-role.directive';
 
 
 
@@ -12,10 +13,12 @@ import { AdminComponent } from './admin.component';
     AdminComponent,
     AdminUserManagerComponent,
     AdminContactManagerComponent,
+    UserHasRoleDirective,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    
   ]
 })
 export class AdminModule { }

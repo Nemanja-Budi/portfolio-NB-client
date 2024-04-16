@@ -1,7 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MainService } from '../main/main.service';
 import { Observable } from 'rxjs';
 import { Contact } from '../main/models/contact.model';
+import { AdminService } from './admin.service';
+import { Member } from './models/member.model';
 
 @Component({
   selector: 'app-admin',
@@ -10,13 +12,6 @@ import { Contact } from '../main/models/contact.model';
 })
 export class AdminComponent {
 
-  mainService: MainService = inject(MainService);
 
-  contacts: Observable<Contact[]> = this.mainService.getContacts();
 
-  onDeleteContact(contact_id: string): void {
-    this.mainService.deleteContact(contact_id).subscribe({
-      next: (response) => console.log(response)
-    });
-  }
 }

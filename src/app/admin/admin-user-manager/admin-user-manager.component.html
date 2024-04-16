@@ -1,1 +1,3 @@
-<p>admin-user-manager works!</p>
+<div *ngFor="let member of members | async">
+    {{member.lastName}}
+</div>
