@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MainService } from 'src/app/main/main.service';
 import { Contact } from 'src/app/main/models/contact.model';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-contact-manager',
@@ -10,6 +10,6 @@ import { Contact } from 'src/app/main/models/contact.model';
 })
 export class AdminContactManagerComponent {
 
-  mainService: MainService = inject(MainService);
-  contacts: Observable<Contact[]> = this.mainService.getContacts();
+  adminService: AdminService = inject(AdminService);
+  contacts: Observable<Contact[]> = this.adminService.getContacts();
 }

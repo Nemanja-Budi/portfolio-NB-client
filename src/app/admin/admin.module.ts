@@ -5,6 +5,8 @@ import { AdminUserManagerComponent } from './admin-user-manager/admin-user-manag
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { UserHasRoleDirective } from '../shared/directives/user-has-role.directive';
+import { AdminContactSearchComponent } from './admin-contact-manager/admin-contact-search/admin-contact-search.component';
+
 
 
 
@@ -14,6 +16,8 @@ import { UserHasRoleDirective } from '../shared/directives/user-has-role.directi
     AdminUserManagerComponent,
     AdminContactManagerComponent,
     UserHasRoleDirective,
+    AdminContactSearchComponent,
+
   ],
   imports: [
     CommonModule,

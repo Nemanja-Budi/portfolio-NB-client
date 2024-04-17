@@ -10,37 +10,9 @@ import { CustomQueryParamas } from '../shared/models/custom-queryparams.model';
 })
 export class MainService {
 
-  quearyParams: CustomQueryParamas = {
-    filterOn: 'NameOfCompany',
-    filterQuery: '',
-    sortBy: 'NameOfCompany',
-    isAscending: false,
-    pageNumber: 1,
-    pageSize: 5
-  }
-
-  quearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.quearyParams);
-
   constructor(private http: HttpClient) { }
 
-  getContacts(): Observable<Contact[]> {
-    return this.quearyParamsSubject.pipe(
-      switchMap(params => {
-        console.log(params.isAscending);
-        const options = {
-          params: new HttpParams()
-            .set('filterOn', params.filterOn || "")
-            .set('filterQuery', params.filterQuery || "")
-            .set('sortBy', params.sortBy || "")
-            .set('isAscending', params.isAscending)
-            .set('pageNumber', params.pageNumber || 1)
-            .set('pageSize', params.pageSize || 5) 
-        };
-        return this.http.get<Contact[]>(`${environment.appUrl}/contacts/get-contacts`, options);
-      })
-    );
-  }
-
+ 
   createContact(contact: Contact): Observable<Contact> {
     return this.http.post<Contact>(`${environment.appUrl}/contacts/add-new-contact`, contact);
   }
