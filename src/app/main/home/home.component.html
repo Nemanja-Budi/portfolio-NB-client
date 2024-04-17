@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="grid md:grid md:grid-cols-[1fr,0.7fr] md:grid-rows-1 h-full justify-center items-center p-10 gap-10 ">
+    <div class="flex flex-col justify-center items-center gap-6 animate__animated animate__zoomInDown  animate__slow ">
+        <div class="flex flex-col md:justify-end md:items-end font-extrabold text-[#fff8]  ">
+            <p class="p-pozdrav">Pozdrav</p>
+            <p class="p-moje">Moje ime je</p>
+            <p class="p-ime">Nemanja Budimirovic</p>
+          </div>  
+        <div class="flex flex-col justify-center items-center gap-6">
+            <div
+                class="bg-transparent/60 text-[#2272ff]   border-[#2272ff] border-2 shadow shadow-[#2272ff]  p-4 md:px-10 rounded-lg flex-col justify-center items-center gap-2 w-fit custom-card ">
+                <p>Fokusiran sam na razvoj karijere kao Web Developer-a.</p>
+                <p>Sa čvrstom željom ka profesionalnom usavršavanju, </p>
+                <p>radim na unapređenju svojih tehničkih veština</p>
+                <p>kako bih pružao efikasna rešenja</p>
+                <p>koja zadovoljavaju poslovne potrebe.</p>
+            </div>
+            <button 
+                (click)="onDownloadCV()"
+                type="submit"
+                class="w-fit custom-button-grozdje2 cocoa-border-buttonCV bg-transparent/60 outline-none text-white font-bold py-2 px-4 rounded mt-4 justify-center items-center">
+                Download CV
+            </button>
+        </div>
+    </div>
+    <div class="flex items-center w-full justify-center animate__animated animate__fadeInLeft animate__slow  ">
+            <img src="assets/images/me3final.png" class="mb-2 md:mb-0 max-h-[70dvh] bg-transparent/60 shadow-xl rounded-3xl shadow-black" alt="Myimg">
+    </div>
+</div>

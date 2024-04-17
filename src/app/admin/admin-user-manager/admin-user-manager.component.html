@@ -1,5 +1,6 @@
 <!-- 7 -->
-<div class="p-5">
+<div class="p-5 flex flex-col gap-3">
+    <button routerLink="/admin" class="flex items-center gap-0.5 w-fit"><span class="text-3xl font-extrabold mb-1">←</span>Contact manager</button>
     <div>
         <app-admin-user-search></app-admin-user-search>
     </div>
@@ -13,10 +14,10 @@
             <div>Uloge</div>
             <div></div>
         </div>
+        <div *ngIf="membersLength == 0"><p class="text-center text-red-500 p-2 col-span-8">Nema rezultata za zadatu pretragu</p></div>
         <div 
             class="grid border-2 border-black md:border-none md:grid md:grid-cols-8 even:bg-slate-600 odd:bg-slate-700 rounded-lg " 
             *ngFor="let member of members | async ; let i = index">
-            
             <div class="px-2 hidden md:grid items-center">{{member.firstName}}</div>
             <div class="px-2 grid grid-cols-2 md:hidden bg-slate-900 rounded-t-md">
             <p class="font-bold">Ime:</p>

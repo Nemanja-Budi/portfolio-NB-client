@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AdminService } from '../admin.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Member } from '../models/member.model';
 
 @Component({
@@ -10,7 +10,11 @@ import { Member } from '../models/member.model';
 })
 export class AdminUserManagerComponent {
 
+  membersLength!: number;
   adminService: AdminService = inject(AdminService);
-  members: Observable<Member[]> = this.adminService.getMembers();
+  members: Observable<Member[]> = this.adminService.getMembers().pipe(map((members) => {
+    this.membersLength = members.length
+    return members;
+  }));
 
 }
