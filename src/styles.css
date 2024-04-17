@@ -218,7 +218,6 @@ body,
     .td-custom2:first-child {
        padding-top: 0.5rem;
        /* background: rgba(0, 0, 0, 0.6); */
-       
     }
     .td-custom2:last-child {
        padding-bottom: 0.5rem;
@@ -230,8 +229,6 @@ body,
        font-weight: 700;
        text-transform: capitalize;
        color:#fff8;
-       
-      
     }
     .td-custom2:nth-of-type(2n) {
        background: rgba(0, 0, 0, 0.5);

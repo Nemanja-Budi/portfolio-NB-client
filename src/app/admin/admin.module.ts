@@ -6,6 +6,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { UserHasRoleDirective } from '../shared/directives/user-has-role.directive';
 import { AdminContactSearchComponent } from './admin-contact-manager/admin-contact-search/admin-contact-search.component';
+import { AdminUserSearchComponent } from './admin-user-manager/admin-user-search/admin-user-search.component';
 
 
 
@@ -17,6 +18,7 @@ import { AdminContactSearchComponent } from './admin-contact-manager/admin-conta
     AdminContactManagerComponent,
     UserHasRoleDirective,
     AdminContactSearchComponent,
+    AdminUserSearchComponent,
 
   ],
   imports: [

@@ -14,6 +14,7 @@
             </tr>
           </thead>
           <tbody class="text-[#2272ff]  rounded-xl ">
+            <td *ngIf="contactsLength == 0" colspan="5"><p class="text-center text-red-500 p-2">Nema rezultata za zadatu pretragu</p></td>
             <ng-container
               *ngFor="let contact of contacts | async; let i = index">
               <tr class="group  hover:bg-transparent/70">
@@ -26,7 +27,8 @@
                   data-cell="delete" 
                   class="td-custom2 px-1 py-1">
                     <button 
-                      (click)="onDeleteContact(contact.id)">
+                      (click)="onDeleteContact(contact.id)"
+                      class="flex">
                       Delete
                     </button>
                   </td>
