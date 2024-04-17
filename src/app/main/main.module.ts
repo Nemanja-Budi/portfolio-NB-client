@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { AccountModule } from '../account/account.module';
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
 
 
@@ -16,6 +17,7 @@ import { AccountModule } from '../account/account.module';
     AboutComponent,
     PortfolioComponent,
     ContactComponent,
+    ContactFormComponent,
   ],
   imports: [
     CommonModule,

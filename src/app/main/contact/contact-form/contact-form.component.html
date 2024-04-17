@@ -1,0 +1,34 @@
+<div class="bg-transparent/60 rounded-md p-6 w-72 md:w-96 shdw border-[#2272ff] border-2 text-[#2272ff]">
+    <form [formGroup]="contactForm" (ngSubmit)="onContact()" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+            <label for="nameOfCompany">Name of Company</label>
+            <input 
+                formControlName="nameOfCompany" 
+                type="text"
+                class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]"
+                placeholder="Name of Company">
+        </div>
+        <div class="flex flex-col gap-2">
+            <label for="email">Email</label>
+            <input 
+                type="text" 
+                formControlName="email"
+                class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]"
+                placeholder="Your email address">
+        </div>
+        <div class="flex flex-col gap-2">
+            <label for="message">Message</label>
+            <textarea 
+                formControlName="message" 
+                id="message" 
+                cols="30" 
+                rows="4"
+                class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]"
+                placeholder="Message">
+            </textarea>
+        </div>
+        <div class="flex justify-center items-center mt-2">
+            <button class="border border-[#2272ff] rounded-md cocoa-border-button custom-button-grozdje" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

@@ -18,7 +18,7 @@ import { UserHasRoleDirective } from '../shared/directives/user-has-role.directi
   imports: [
     CommonModule,
     AdminRoutingModule,
-    
-  ]
+  ],
+  exports: [UserHasRoleDirective]
 })
 export class AdminModule { }

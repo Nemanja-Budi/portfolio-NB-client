@@ -6,6 +6,7 @@
             <li routerLinkActive="active"><a routerLink="/main/about">About</a></li>
             <li routerLinkActive="active"><a routerLink="/main/portfolio">Portfolio</a></li>
             <li routerLinkActive="active"><a routerLink="/main/contact">Contact</a></li>
+            <li *appUserHasRole="['Admin']" routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
         </div>
         <div>
             <li routerLinkActive="active"><a  *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a></li>

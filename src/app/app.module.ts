@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    AdminModule
   ],
   exports: [HttpClientModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
