@@ -31,6 +31,7 @@ export class AdminService {
 
   contactQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.contactsQuearyParams);
   memberQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.memberQuearyParams);
+  
   constructor(private http: HttpClient) { }
 
   getMembers(): Observable<Member[]> {
@@ -48,10 +49,6 @@ export class AdminService {
         return this.http.get<Member[]>(`http://localhost:5257/api/admin/get-members`, options);
       })
     );
-  }
-
-  getRoles(): Observable<string[]> {
-    return this.http.get<string[]>(`http://localhost:5257/api/admin/get-application-roles`);
   }
 
   getContacts(): Observable<Contact[]> {
@@ -73,6 +70,14 @@ export class AdminService {
 
   deleteContact(contactId: string): Observable<Contact> {
     return this.http.delete<Contact>(`${environment.appUrl}/contacts/delete-contact/${contactId}`);
+  }
+
+  getContact(contactId: string): Observable<Contact> {
+    return this.http.get<Contact>(`${environment.appUrl}/contacts/get-contact/${contactId}`);
+  }
+
+  getRoles(): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:5257/api/admin/get-application-roles`);
   }
 
 }

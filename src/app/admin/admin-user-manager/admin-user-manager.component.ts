@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { AdminService } from '../admin.service';
 import { Observable, map } from 'rxjs';
+
+import { AdminService } from '../admin.service';
 import { Member } from '../models/member.model';
 
 @Component({

@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { AccountService } from '../account.service';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Login } from '../models/login.model';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { take } from 'rxjs';
+
+import { AccountService } from '../account.service';
+import { Login } from '../models/login.model';
 import { User } from '../models/user.model';
 
 @Component({

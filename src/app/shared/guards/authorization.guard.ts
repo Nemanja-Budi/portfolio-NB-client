@@ -1,6 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+
 import { Observable, map } from 'rxjs';
+
 import { AccountService } from 'src/app/account/account.service';
 import { User } from '../../account/models/user.model';
 
