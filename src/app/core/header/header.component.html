@@ -2,13 +2,13 @@
     <ul class="flex justify-between items-center ">
         <div class="text-5xl font-bold text-[#fff8]">NB</div>
         <div class="flex gap-3 "> 
-            <li routerLinkActive="text-[#fff8]"><a routerLink="/main/home">Home</a></li>
-            <li routerLinkActive="text-[#fff8]"><a routerLink="/main/about">About</a></li>
-            <li routerLinkActive="text-[#fff8]"><a routerLink="/main/portfolio">Portfolio</a></li>
-            <li routerLinkActive="text-[#fff8]"><a routerLink="/main/contact">Contact</a></li>
+            <li routerLinkActive="active"><a routerLink="/main/home">Home</a></li>
+            <li routerLinkActive="active"><a routerLink="/main/about">About</a></li>
+            <li routerLinkActive="active"><a routerLink="/main/portfolio">Portfolio</a></li>
+            <li routerLinkActive="active"><a routerLink="/main/contact">Contact</a></li>
         </div>
         <div>
-            <a  *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a>
+            <li routerLinkActive="active"><a  *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a></li>
             <button *ngIf="(accountService.user$ | async)as user" (click)="onLogout()">Logout</button>
         </div>
     </ul>

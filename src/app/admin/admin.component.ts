@@ -12,6 +12,6 @@ import { Member } from './models/member.model';
 })
 export class AdminComponent {
 
-
+  proba: boolean = false;
 
 }

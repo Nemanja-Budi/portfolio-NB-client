@@ -1,2 +1,20 @@
-<a routerLink="/admin/user-manager" *appUserHasRole="['Admin']">User manager</a>
-<a routerLink="/admin/contact-manager">Contact manager</a>
+<!-- <div class="w-[50%] mx-auto grid grid-cols-2 h-full" >
+    <div class="bg-slate-500" *appUserHasRole="['Admin']">
+        <a routerLink="/admin/user-manager">User manager</a>
+    </div>
+    <div  class="bg-teal-500 flex justify-center items-center" *appUserHasRole="['Player']">
+        <a routerLink="/admin/contact-manager">Contact manager</a>
+    </div>
+</div> -->
+<div class="grid grid-cols-2 h-full text-center justify-center items-center">
+    <div class="bg-slate-500 " *appUserHasRole="['Admin']">
+        <a routerLink="/admin/user-manager">User manager</a>
+    </div>
+    <div  class="bg-teal-500">
+        <a routerLink="/admin/contact-manager">Contact manager</a>
+    </div>
+</div>
+
+<div  class="bg-teal-500">
+    <a routerLink="/admin/contact-manager">Contact manager</a>
+</div>

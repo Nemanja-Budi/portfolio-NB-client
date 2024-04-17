@@ -14,3 +14,249 @@ body,
     /* min-height: 100dvh; */
     background-color: #3f3f46;
 }
+
+.custom-input {
+    background-color: transparent !important;
+  }
+  
+
+.active {
+    color: #fff8;
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 0.8) infinite!important;
+}
+
+@keyframes active {
+    50% {
+        opacity: .5!important;
+    }
+}
+
+
+.h2-custom {
+    font-size: clamp(2rem, 3.5vw, 7.9rem);
+}
+
+.p-pozdrav {
+    font-size: clamp(1.3rem, 1.9vw, 3.9rem);
+}
+
+.p-moje {
+    font-size: clamp(1.3rem, 2.2vw, 3.9rem);
+}
+
+.p-ime {
+    font-size: clamp(1.3rem, 2.5vw, 3.9rem);
+}
+
+.p-custom {
+    font-size: clamp(1.3rem, 2.9vw, 3.9rem);
+}
+
+.contact-me {
+    font-size: clamp(1.3rem, 3.2vw, 3.9rem);
+    color: #fff8;
+}
+
+.contact-br-mail {
+    font-size: clamp(1.3rem, 2vw, 3.9rem);
+}
+
+
+.padding-custom {
+    padding: clamp(1rem, 9vw, 8rem);
+}
+
+/* .width-custom {
+    width: clamp(12rem, 75dvh, 45rem);
+} */
+
+.custom-card {
+    font-size: clamp(0.9rem, 1.5vw, 3.9rem);
+}
+
+.about-skils {
+    font-size: clamp(1.1rem, 1.2vw, 3.9rem);
+    /* font-weight: bold; */
+}
+
+.about-card1 {
+    font-size: clamp(1rem, 1.2vw, 3.9rem);
+    
+}
+.about-card2 {
+    font-size: clamp(1rem, 1.1vw, 3.9rem);  
+}
+
+.contact-form {
+    width: clamp(22rem,50vw, 45rem);  
+}
+
+.about-skils2 {
+    font-size: clamp(1rem, 1.256vw, 3.9rem);
+    /* font-weight: bold; */
+}
+
+.portfolio-h2 {
+    /* color: #fff8; */
+    font-weight: bold;
+    font-size: clamp(1rem, 1.5vw, 3.9rem);
+}
+
+.portfolio-text {
+    font-size: clamp(0.9rem, 0.8vw, 2.5rem);
+}
+.portfolio-p-text {
+    font-size: clamp(0.9rem, 1vw, 3.9rem);
+}
+.portfolio-project-link {
+    font-size: clamp(0.9rem, 1.2vw, 3.9rem);
+    font-weight: bold;
+}
+
+.toogle-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.cocoa-border-button {
+    display: inline-block;
+    color: #2272ff;
+    /* font-weight: bold; */
+    padding: 7px 30px;
+    /* cursor: pointer; */
+    font-size: 1.15rem;
+    border-radius: 5px;
+    background: transparent;
+    border: 2px solid transparent;
+    transition: background 0.3s;
+    border: 2px solid #2272ff;
+}
+
+.cocoa-border-button:hover {
+    background: #2272ff;
+    color: #fff;
+    border: 2px solid #2272ff;
+}
+
+.custom-button-grozdje {
+    box-shadow: 0 0 5px #2272ff,
+        0 0 10px;
+}
+
+.custom-button-grozdje:hover {
+    box-shadow: 0 0 5px #2272ff,
+        0 0 10px #2272ff;
+}
+
+
+.cocoa-border-buttonCV {
+    display: inline-block;
+    color: #2272ff;
+    font-weight: bold;
+    padding: 10px 20px;
+    /* cursor: pointer; */
+    font-size: 1.15rem;
+    border-radius: 5px;
+    background: rgb(0 0 0 / 0.6);
+    border: 2px solid transparent;
+    transition: background 0.6s;
+    border: 2px solid #2272ff;
+}
+
+.cocoa-border-buttonCV:hover {
+    background: #2272ff;
+    color: #fff;
+    border: 2px solid #2272ff;
+}
+
+.custom-button-grozdje2 {
+    box-shadow: 0 0 5px #2272ff;
+}
+
+.custom-button-grozdje2:hover {
+    box-shadow: 0 0 5px #2272ff;
+}
+
+.svg1 {
+    background-color: fff;
+}
+
+.shdw {
+    box-shadow: 0 0 50px #2272ff;
+   
+}
+
+@keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {  
+      opacity: 1;
+    }
+  }
+  
+  .fade-in-out {
+    animation: fadeInOut 4s ease;
+  }
+
+  
+  
+  
+
+@media (max-width: 550px) {
+   
+    .th-custom2 {
+       display: none;
+    }
+    .td-custom2 {
+       display: grid;
+       gap: 1rem;
+       grid-template-columns: 10ch auto;
+       padding: 0.5rem 1rem;
+    }
+    .td-custom2:first-child {
+       padding-top: 0.5rem;
+       /* background: rgba(0, 0, 0, 0.6); */
+       
+    }
+    .td-custom2:last-child {
+       padding-bottom: 0.5rem;
+       border-bottom: solid 2px;
+    }
+ 
+    .td-custom2::before {
+       content: attr(data-cell) ": ";
+       font-weight: 700;
+       text-transform: capitalize;
+       color:#fff8;
+       
+      
+    }
+    .td-custom2:nth-of-type(2n) {
+       background: rgba(0, 0, 0, 0.5);
+    }
+ }
+
+
+   @keyframes spin {
+    0% {
+      transform: rotateX(0deg);
+    }
+    100% {
+      transform: rotateX(360deg);
+    }
+  }
+
+  .spin {
+    animation: none; 
+
+  }
+  
+  .spin:hover {
+    animation: spin 1.5s ease-in-out; 
+  }
