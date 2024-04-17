@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class AdminService {
 
-  quearyParams: CustomQueryParamas = {
+  contactsQuearyParams: CustomQueryParamas = {
     filterOn: 'NameOfCompany',
     filterQuery: '',
     sortBy: 'NameOfCompany',
@@ -20,12 +20,35 @@ export class AdminService {
     pageSize: 5
   }
 
-  quearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.quearyParams);
+  memberQuearyParams: CustomQueryParamas = {
+    filterOn: 'firstname',
+    filterQuery: '',
+    sortBy: 'username',
+    isAscending: true,
+    pageNumber: 2,
+    pageSize: 1
+  }
 
+  contactQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.contactsQuearyParams);
+  memberQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.memberQuearyParams);
   constructor(private http: HttpClient) { }
 
   getMembers(): Observable<Member[]> {
-    return this.http.get<Member[]>(`http://localhost:5257/api/admin/get-members`);
+    return this.memberQuearyParamsSubject.pipe(
+      switchMap(params => {
+        console.log(params.isAscending);
+        const options = {
+          params: new HttpParams()
+            .set('filterOn', params.filterOn || "")
+            .set('filterQuery', params.filterQuery || "")
+            .set('sortBy', params.sortBy || "")
+            .set('isAscending', params.isAscending)
+            .set('pageNumber', params.pageNumber || 1)
+            .set('pageSize', params.pageSize || 5) 
+        };
+        return this.http.get<Member[]>(`http://localhost:5257/api/admin/get-members`, options);
+      })
+    );
   }
 
   getRoles(): Observable<string[]> {
@@ -33,7 +56,7 @@ export class AdminService {
   }
 
   getContacts(): Observable<Contact[]> {
-    return this.quearyParamsSubject.pipe(
+    return this.contactQuearyParamsSubject.pipe(
       switchMap(params => {
         console.log(params.isAscending);
         const options = {

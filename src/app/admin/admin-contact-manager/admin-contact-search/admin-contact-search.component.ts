@@ -11,8 +11,8 @@ export class AdminContactSearchComponent {
   adminService: AdminService = inject(AdminService);  
 
   onGetSearchContactInput(searchContactInput: string): void {
-    this.adminService.quearyParamsSubject.next({
-      ...this.adminService.quearyParamsSubject.value,
+    this.adminService.contactQuearyParamsSubject.next({
+      ...this.adminService.contactQuearyParamsSubject.value,
       filterQuery: searchContactInput,
     });
   }

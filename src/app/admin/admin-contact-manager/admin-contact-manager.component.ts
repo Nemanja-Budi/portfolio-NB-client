@@ -16,12 +16,12 @@ export class AdminContactManagerComponent {
     this.contactsLength = contacts.length
     return contacts;
   }));
-  isAscending: boolean = this.adminService.quearyParamsSubject.value.isAscending;
+  isAscending: boolean = this.adminService.contactQuearyParamsSubject.value.isAscending;
 
   onChangeSortDirection(): void {
     this.isAscending = !this.isAscending;
-    this.adminService.quearyParamsSubject.next({
-      ...this.adminService.quearyParamsSubject.value,
+    this.adminService.contactQuearyParamsSubject.next({
+      ...this.adminService.contactQuearyParamsSubject.value,
       isAscending: this.isAscending
     });
   }
