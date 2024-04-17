@@ -1,9 +1,21 @@
-<div class="grid grid-cols-2">
-    <div></div>
+<div class="grid grid-cols-[1fr,auto,1fr] gap-3">
+    <div class="w-full">
+        <select  
+            name="memberSelect" 
+            id="memberSelect"
+            #memberSelect
+            (change)="onGetMemberSelect(memberSelect.value)"
+            class="bg-transparent outline-none border-transparent/60 border custom-input  rounded-md p-1 placeholder:text-transparent/60  placeholder:p-1 w-full">
+            <option *ngFor="let searchMember of selectValues" value="{{searchMember.searchValue}}">{{searchMember.searchTerm}}</option>
+        </select>
+    </div>
+    <div><span (click)="onChangeSortDirection()" class="font-extrabold cursor-pointer text-2xl">{{isAscending ? '↓' : '↑'}}</span></div>
+    <div class="w-full">
     <input 
         type="text" 
-        placeholder="Search by name"
-        class="bg-transparent outline-none border-transparent/60 border custom-input  rounded-md p-1 placeholder:text-transparent/60  placeholder:p-1"
+        placeholder="Search by {{placeHolderValue}}"
+        class="bg-transparent outline-none border-transparent/60 border custom-input  rounded-md p-1 placeholder:text-transparent/60  placeholder:p-1 w-full"
         #searchMemberInput
         (input)="onGetSearchMemberInput(searchMemberInput.value)">
+    </div>
 </div>

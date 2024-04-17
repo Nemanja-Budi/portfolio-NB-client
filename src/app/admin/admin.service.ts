@@ -23,10 +23,10 @@ export class AdminService {
   memberQuearyParams: CustomQueryParamas = {
     filterOn: 'firstname',
     filterQuery: '',
-    sortBy: 'username',
+    sortBy: 'firstname',
     isAscending: true,
-    pageNumber: 2,
-    pageSize: 1
+    pageNumber: 1,
+    pageSize: 5
   }
 
   contactQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.contactsQuearyParams);
@@ -36,7 +36,6 @@ export class AdminService {
   getMembers(): Observable<Member[]> {
     return this.memberQuearyParamsSubject.pipe(
       switchMap(params => {
-        console.log(params.isAscending);
         const options = {
           params: new HttpParams()
             .set('filterOn', params.filterOn || "")
@@ -58,7 +57,6 @@ export class AdminService {
   getContacts(): Observable<Contact[]> {
     return this.contactQuearyParamsSubject.pipe(
       switchMap(params => {
-        console.log(params.isAscending);
         const options = {
           params: new HttpParams()
             .set('filterOn', params.filterOn || "")
