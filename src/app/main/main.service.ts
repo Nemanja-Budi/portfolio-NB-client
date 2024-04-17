@@ -25,7 +25,5 @@ export class MainService {
   //   return this.http.get<Contact[]>(`${environment.appUrl}/contacts/get-contacts`);
   // }
 
-  deleteContact(contactId: string): Observable<Contact> {
-    return this.http.delete<Contact>(`${environment.appUrl}/contacts/delete-contact/${contactId}`);
-  }
+  
 }

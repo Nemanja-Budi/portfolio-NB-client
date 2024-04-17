@@ -7,9 +7,10 @@
           <thead class="text-[#fff8] rounded-2xl border-b-2 border-[#2272ff] ">
             <tr class="">
               <th class="th-custom2 px-4 py-1 text-left">Br.</th>
-              <th class="th-custom2 px-0 py-1 text-left ">Ime</th>
+              <th class="th-custom2 px-0 py-1 text-left ">Ime <span (click)="onChangeSortDirection()" class="font-extrabold cursor-pointer">{{isAscending ? '↓' : '↑'}}</span></th>
               <th class="th-custom2 px-0 py-1 text-left">Email</th>
               <th class="th-custom2 px-0 py-1 text-start">Poruka</th>
+              <th *appUserHasRole="['Admin']" class="th-custom2 px-0 py-1 text-start"></th>
             </tr>
           </thead>
           <tbody class="text-[#2272ff]  rounded-xl ">
@@ -20,6 +21,15 @@
                 <td data-cell="ime" class="td-custom2 px-1 py-1 text-left">{{ contact.nameOfCompany }}</td>
                 <td data-cell="email" class="td-custom2 px-1 py-1 text-left ">{{ contact.email}}</td>
                 <td data-cell="poruka" class="td-custom2 px-1 py-1 ">{{ contact.message}}</td>
+                <td 
+                  *appUserHasRole="['Admin']" 
+                  data-cell="delete" 
+                  class="td-custom2 px-1 py-1">
+                    <button 
+                      (click)="onDeleteContact(contact.id)">
+                      Delete
+                    </button>
+                  </td>
               </tr>
             </ng-container>
           </tbody>

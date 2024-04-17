@@ -15,7 +15,7 @@ export class AdminService {
     filterOn: 'NameOfCompany',
     filterQuery: '',
     sortBy: 'NameOfCompany',
-    isAscending: false,
+    isAscending: true,
     pageNumber: 1,
     pageSize: 5
   }
@@ -48,6 +48,10 @@ export class AdminService {
         return this.http.get<Contact[]>(`${environment.appUrl}/contacts/get-contacts`, options);
       })
     );
+  }
+
+  deleteContact(contactId: string): Observable<Contact> {
+    return this.http.delete<Contact>(`${environment.appUrl}/contacts/delete-contact/${contactId}`);
   }
 
 }
