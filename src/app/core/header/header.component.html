@@ -1,25 +1,8 @@
-<!-- <nav class="bg-transparent/60 p-1 text-[#2272ff]">
-    <ul class="flex justify-between items-center ">
-        <div class="text-5xl font-bold text-[#fff8]">NB</div>
-        <div class="flex gap-3 "> 
-            <li routerLinkActive="active"><a routerLink="/main/home">Home</a></li>
-            <li routerLinkActive="active"><a routerLink="/main/about">About</a></li>
-            <li routerLinkActive="active"><a routerLink="/main/portfolio">Portfolio</a></li>
-            <li routerLinkActive="active"><a routerLink="/main/contact">Contact</a></li>
-            <li *appUserHasRole="['Admin']" routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
-        </div>
-        <div>
-            <li routerLinkActive="active"><a  *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a></li>
-            <button *ngIf="(accountService.user$ | async)as user" (click)="onLogout()">Logout</button>
-        </div>
-    </ul>
-</nav> -->
-
 <header class="flex items-center bg-transparent/60 p-1 text-[#2272ff]">
     <div class="text-5xl font-bold text-[#fff8]">NB</div>
     <button (click)="onToggleNavBar()" class="mobile-nav-toggle"><span class="sr-only">Menu</span></button>
     <nav class="mx-auto">
-        <ul [ngClass]="{'openNavBar': isOpen}" class="primary-navigation flex gap-3 md:bg-transparent">
+        <ul appDisableAnimationOnResize [ngClass]="{'openNavBar': isOpen}" class="primary-navigation flex gap-3 md:bg-transparent">
             <li routerLinkActive="active"><a routerLink="/main/home">Home</a></li>
             <li routerLinkActive="active"><a routerLink="/main/about">About</a></li>
             <li routerLinkActive="active"><a routerLink="/main/portfolio">Portfolio</a></li>

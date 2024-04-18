@@ -10,6 +10,7 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { DisableAnimationOnResizeDirective } from './shared/directives/disable-animation-on-resize.directive';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FooterComponent } from './core/footer/footer.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    DisableAnimationOnResizeDirective,
   ],
   imports: [
     BrowserModule,

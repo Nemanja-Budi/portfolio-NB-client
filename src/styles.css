@@ -289,6 +289,10 @@ body,
   .openNavBar {
     transform:  translateX(0%);
   }
+  
+  .primary-navigation.disable-animation {
+    transition: none !important;
+  }
 
   @supports (backdrop-filter: blur(1rem)) {
     .primary-navigation {
