@@ -13,6 +13,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { DisableAnimationOnResizeDirective } from './shared/directives/disable-animation-on-resize.directive';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
