@@ -1,6 +1,9 @@
 <!-- 7 -->
 <div class="p-5 flex flex-col gap-3">
-    <button routerLink="/admin" class="flex items-center gap-0.5 w-fit"><span class="text-3xl font-extrabold mb-1">←</span>Contact manager</button>
+    <div class="flex justify-between">
+        <button routerLink="/admin" class="flex items-center gap-0.5 w-fit"><span class="text-3xl font-extrabold mb-1">←</span>Contact manager</button>
+        <button routerLink="/admin/add-new-user" class="bg-transparent/60 px-2 py-1 rounded-md text-white">Add new User</button>
+    </div>
     <div>
         <app-admin-user-search></app-admin-user-search>
     </div>
@@ -10,55 +13,98 @@
             <div>Prezime</div>
             <div class="col-span-2">Username</div>
             <div>Datum kreiranja</div>
-            <div>Zakljucan ?</div>
             <div>Uloge</div>
+            <div class="text-center">Lock/Unlock</div>
             <div></div>
         </div>
         <div *ngIf="membersLength == 0"><p class="text-center text-red-500 p-2 col-span-8">Nema rezultata za zadatu pretragu</p></div>
         <div 
-            class="grid border-2 border-black md:border-none md:grid md:grid-cols-8 even:bg-slate-600 odd:bg-slate-700 rounded-lg " 
+            class="grid border-2 border-black md:border-none md:grid md:grid-cols-8 even:bg-slate-600 odd:bg-slate-700 rounded-lg" 
             *ngFor="let member of members | async ; let i = index">
-            <div class="px-2 hidden md:grid items-center">{{member.firstName}}</div>
+
+            <div class="px-2 hidden md:grid items-center">{{member.firstName | titlecase}}</div>
             <div class="px-2 grid grid-cols-2 md:hidden bg-slate-900 rounded-t-md">
-            <p class="font-bold">Ime:</p>
-            <p>{{member.firstName}}</p>
+            <p class="font-bold text-white">Ime:</p>
+            <p class="text-white">{{member.firstName | titlecase}}</p>
             </div>
 
-            <div class="px-2 hidden md:grid items-center">{{member.lastName}}</div>
+            <div class="px-2 hidden md:grid items-center">{{member.lastName | titlecase}}</div>
             <div class="px-2 grid grid-cols-2 md:hidden">
             <p class="font-bold">Prezime:</p>
-            <p>{{member.lastName}}</p>
+            <p>{{member.lastName | titlecase}}</p>
             </div>
 
             <div class="px-2 hidden md:grid items-center col-span-2">{{member.userName}}</div>
             <div class="px-2 grid grid-cols-2 md:hidden">
-            <p class="font-bold">User Name:</p>
-            <p>{{member.userName}}</p>
+                <p class="font-bold">User Name:</p>
+                <p>{{member.userName}}</p>
             </div>
 
             <div class="px-2 hidden md:grid items-center ">{{member.dateCreated | date}}</div>
             <div class="px-2 grid grid-cols-2 md:hidden">
-            <p class="font-bold">Datum kreiranja</p>
-            <p>{{member.dateCreated | date}}</p>
+                <p class="font-bold">Datum kreiranja</p>
+                <p>{{member.dateCreated | date}}</p>
             </div>
 
-            <div class="px-2 hidden md:grid items-center ">{{member.isLocked}}</div>
+            <div class="px-2 hidden md:flex gap-1 items-center">
+                <span *ngFor="let role of member.roles; let i = index">
+                    {{role}}<span *ngIf="i+1 < member.roles.length">, </span>
+                </span>
+            </div>
             <div class="px-2 grid grid-cols-2 md:hidden">
-            <p class="font-bold">Zakljucan ?</p>
-            <p>{{member.isLocked}}</p>
+                <p class="font-bold">Roles</p>
+                <div class="block">
+                    <span *ngFor="let role of member.roles; let i = index">
+                        {{role}}<span *ngIf="i+1 < member.roles.length">, </span>
+                    </span>
+                </div>
             </div>
 
-            <div class="px-2 hidden md:grid items-center ">{{member.roles | json}}</div>
+            <div class="px-1 py-1 w-[50%] mx-auto hidden md:grid items-center ">
+                <button 
+                    *ngIf="!member.isLocked" 
+                    class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                    (click)="onLockMember(member.id)">
+                    Lock
+                </button>
+                <button 
+                    *ngIf="member.isLocked" 
+                    class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                    (click)="onUnlockMember(member.id)">
+                    Unlock
+                </button>
+            </div>
             <div class="px-2 grid grid-cols-2 md:hidden">
-            <p class="font-bold">Roles</p>
-            <p>{{member.roles | json}}</p>
+                <p class="font-bold">Lock/Unlock</p>
+                <button 
+                    *ngIf="!member.isLocked" 
+                    class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                    (click)="onLockMember(member.id)">
+                    Lock
+                </button>
+                <button 
+                    *ngIf="member.isLocked" 
+                    class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                    (click)="onUnlockMember(member.id)">
+                    Unlock
+                </button>
             </div>
 
-            <div class="w-full px-1 py-1">
-            <button class="w-full rounded-lg text-white flex justify-center items-center bg-[#4BB543] contact-list-btn">Edit</button>
+            <div class="w-full px-2 py-1 flex gap-1">
+                <button 
+                    class="w-full rounded-lg text-white flex justify-center items-center bg-[#4BB543] contact-list-btn" 
+                    routerLink="/admin/edit-user/{{member.id}}">
+                    Edit
+                </button>
+                <button class="w-full rounded-lg text-white flex justify-center items-center bg-red-600 contact-list-btn">Delete</button>
             </div>
         </div>
         <!-- <p *ngIf="noResultsMessage">{{ noResultsMessage }}</p> -->
     
     </div>
 </div>
+
+<!-- <dialog #editUser class="modal">
+    <app-admin-edit-member></app-admin-edit-member>
+    <button (click)="onCloseModal(editUser)">Close</button>
+</dialog> -->

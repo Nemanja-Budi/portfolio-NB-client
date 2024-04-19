@@ -18,4 +18,24 @@ export class AdminUserManagerComponent {
     return members;
   }));
 
+  onEditUser(editUser: HTMLDialogElement): void {
+    editUser.showModal();
+  }
+
+  onCloseModal(editUser: HTMLDialogElement): void {
+    editUser.close();
+  }
+
+  onLockMember(member_id: string): void {
+    this.adminService.lockMember(member_id).subscribe({
+      next: () => this.members = this.adminService.getMembers()
+    });
+  }
+
+  onUnlockMember(member_id: string): void {
+    this.adminService.unlockMember(member_id).subscribe({
+      next: () => this.members = this.adminService.getMembers()
+    });
+  }
+
 }

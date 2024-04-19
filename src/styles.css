@@ -11,7 +11,6 @@
 html,
 body,
 :root {
-    /* min-height: 100dvh; */
     background-color: #3f3f46;
     overflow-x: hidden;
 }
@@ -22,7 +21,7 @@ body,
   
 
 .active {
-    color: #fff8;
+    color: #ffffff88;
     animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 0.8) infinite!important;
 }
 
@@ -67,9 +66,6 @@ body,
     padding: clamp(1rem, 9vw, 8rem);
 }
 
-/* .width-custom {
-    width: clamp(12rem, 75dvh, 45rem);
-} */
 
 .custom-card {
     font-size: clamp(0.9rem, 1.5vw, 3.9rem);
@@ -77,7 +73,6 @@ body,
 
 .about-skils {
     font-size: clamp(1.1rem, 1.2vw, 3.9rem);
-    /* font-weight: bold; */
 }
 
 .about-card1 {
@@ -119,40 +114,78 @@ body,
     flex-direction: column;
 }
 
-
-
-.cocoa-border-button {
+/* LOGIN BUTTON */
+.login-button {
     display: inline-block;
     color: #2272ff;
-    /* font-weight: bold; */
     padding: 7px 30px;
-    /* cursor: pointer; */
     font-size: 1.15rem;
     border-radius: 5px;
     background: transparent;
     border: 2px solid transparent;
     transition: background 0.3s;
     border: 2px solid #2272ff;
+    box-shadow: 0 0 5px #2272ff,
+    0 0 10px;
 }
-
-.cocoa-border-button:hover {
+.login-button:hover {
     background: #2272ff;
     color: #fff;
     border: 2px solid #2272ff;
-}
-
-.custom-button-grozdje {
     box-shadow: 0 0 5px #2272ff,
-        0 0 10px;
+    0 0 10px #2272ff;
+}
+/* ************** */
+
+/* EDIT MEMBER BUTTON */
+.edit-member-button{
+    display: inline-block;
+    color: #2272ff;
+    padding: 7px 10px;
+    font-size: 1.15rem;
+    border-radius: 5px;
+    background: transparent;
+    border: 2px solid transparent;
+    transition: background 0.3s;
+    border: 2px solid #2272ff;
+    box-shadow: 0 0 5px #2272ff,
+    0 0 10px;
 }
 
-.custom-button-grozdje:hover {
+.edit-member-button:hover {
+    background: #2272ff;
+    color: #fff;
+    border: 2px solid #2272ff;
     box-shadow: 0 0 5px #2272ff,
         0 0 10px #2272ff;
 }
+/* ************** */
 
+/* BACK TO USER MANAGER BUTTON */
+.back-to-user-manager-button{
+    display: inline-block;
+    color: #f23838;
+    padding: 7px 10px;
+    font-size: 1.15rem;
+    border-radius: 5px;
+    background: transparent;
+    border: 2px solid transparent;
+    transition: background 0.3s;
+    border: 2px solid #f23838;
+    box-shadow: 0 0 5px #f23838,
+    0 0 10px;
+}
+.back-to-user-manager-button:hover {
+    background: #f23838;
+    color: #fff;
+    border: 2px solid #f23838;
+    box-shadow: 0 0 5px #f23838,
+        0 0 10px #f23838;
+}
+/* ************** */
 
-.cocoa-border-buttonCV {
+/* DOWNLOAD CV BUTTON */
+.download-cv-button {
     display: inline-block;
     color: #2272ff;
     font-weight: bold;
@@ -164,25 +197,15 @@ body,
     border: 2px solid transparent;
     transition: background 0.6s;
     border: 2px solid #2272ff;
+    box-shadow: 0 0 5px #2272ff;
 }
-
-.cocoa-border-buttonCV:hover {
+.download-cv-button:hover {
     background: #2272ff;
     color: #fff;
     border: 2px solid #2272ff;
-}
-
-.custom-button-grozdje2 {
     box-shadow: 0 0 5px #2272ff;
 }
-
-.custom-button-grozdje2:hover {
-    box-shadow: 0 0 5px #2272ff;
-}
-
-.svg1 {
-    background-color: fff;
-}
+/* ************** */
 
 .shdw {
     box-shadow: 0 0 50px #2272ff;
@@ -281,9 +304,13 @@ body,
         width: 3rem;
         aspect-ratio: 1;
         top: 0.2rem;
-        right: 2rem;
+        right: 1rem;
         z-index: 9999;
     }
+  }
+
+  .xMarkWhenIsOpen {
+    background: url('assets/images/icons8-x-50.png');
   }
 
   .openNavBar {
@@ -300,3 +327,21 @@ body,
         backdrop-filter: blur(1rem);
     }
   }
+
+.modal::backdrop {
+    background: hsla(0, 82%, 51%, 0.1);
+        backdrop-filter: blur(0.1rem);
+}
+
+.modal {
+    position: fixed;
+    top: 50%; /* Centriranje vertikalno */
+    left: 50%; /* Centriranje horizontalno */
+    transform: translate(-50%, -50%); /* Pomaknite dijalog na sredinu */
+    background-color: green;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* z-index: 1000; Postavite visoki z-index kako bi dijalog bio iznad ostalih elemenata */
+  }
+  

@@ -1,6 +1,6 @@
-<header class="flex items-center bg-transparent/60 p-1 text-[#2272ff]">
+<header class="flex items-center bg-transparent/60 p-1 text-[#2272ff] sticky">
     <div class="text-5xl font-bold text-[#fff8]">NB</div>
-    <button (click)="onToggleNavBar()" class="mobile-nav-toggle"><span class="sr-only">Menu</span></button>
+    <button [ngClass]="{'xMarkWhenIsOpen' : isOpen}" (click)="onToggleNavBar()" class="mobile-nav-toggle"><span class="sr-only">Menu</span></button>
     <nav class="mx-auto">
         <ul appDisableAnimationOnResize [ngClass]="{'openNavBar': isOpen}" class="primary-navigation flex gap-3 md:bg-transparent">
             <li routerLinkActive="active"><a routerLink="/main/home">Home</a></li>

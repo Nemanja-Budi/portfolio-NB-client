@@ -7,6 +7,8 @@ import { AdminComponent } from './admin.component';
 import { UserHasRoleDirective } from '../shared/directives/user-has-role.directive';
 import { AdminContactSearchComponent } from './admin-contact-manager/admin-contact-search/admin-contact-search.component';
 import { AdminUserSearchComponent } from './admin-user-manager/admin-user-search/admin-user-search.component';
+import { AdminEditMemberComponent } from './admin-user-manager/admin-edit-member/admin-edit-member.component';
+import { AccountModule } from '../account/account.module';
 
 
 
@@ -19,11 +21,13 @@ import { AdminUserSearchComponent } from './admin-user-manager/admin-user-search
     UserHasRoleDirective,
     AdminContactSearchComponent,
     AdminUserSearchComponent,
+    AdminEditMemberComponent,
 
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    AccountModule
   ],
   exports: [UserHasRoleDirective]
 })

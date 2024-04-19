@@ -5,6 +5,7 @@ import { Member } from './models/member.model';
 import { Contact } from '../main/models/contact.model';
 import { CustomQueryParamas } from '../shared/models/custom-queryparams.model';
 import { environment } from 'src/environments/environment.development';
+import { MemberAddEdit } from './models/member-add-edit';
 
 @Injectable({
   providedIn: 'root'
@@ -46,9 +47,29 @@ export class AdminService {
             .set('pageNumber', params.pageNumber || 1)
             .set('pageSize', params.pageSize || 5) 
         };
-        return this.http.get<Member[]>(`http://localhost:5257/api/admin/get-members`, options);
+        return this.http.get<Member[]>(`${environment.appUrl}/admin/get-members`, options);
       })
     );
+  }
+
+  getMember(id: string) {
+    return this.http.get<MemberAddEdit>(`${environment.appUrl}/admin/get-member/${id}`);
+  }
+
+  addEditMember(memberAddEdit: MemberAddEdit) {
+    return this.http.post(`${environment.appUrl}/admin/add-edit-member`, memberAddEdit);
+  }
+
+  lockMember(member_id: string) {
+    return this.http.put(`${environment.appUrl}/admin/lock-member/${member_id}`, {});
+  }
+
+  unlockMember(member_id: string) {
+    return this.http.put(`${environment.appUrl}/admin/unlock-member/${member_id}`, {});
+  }
+
+  deleteMember(member_id: string) {
+    return this.http.delete(`${environment.appUrl}/admin/delete-member/${member_id}`, {});
   }
 
   getContacts(): Observable<Contact[]> {
@@ -77,7 +98,7 @@ export class AdminService {
   }
 
   getRoles(): Observable<string[]> {
-    return this.http.get<string[]>(`http://localhost:5257/api/admin/get-application-roles`);
+    return this.http.get<string[]>(`${environment.appUrl}/admin/get-application-roles`);
   }
 
 }

@@ -17,11 +17,11 @@ export class AdminUserSearchComponent {
   adminService: AdminService = inject(AdminService);
 
   isAscending: boolean = true;
-  placeHolderValue: string = 'username'
+  placeHolderValue: string = 'firstname'
   selectValues: MemberSelect[] = [
-    {searchTerm: "User name", searchValue: "username" },
     {searchTerm: "First name", searchValue: "firstname" },
-    {searchTerm: "Last name", searchValue: "lastname" }
+    {searchTerm: "Last name", searchValue: "lastname" },
+    {searchTerm: "User name", searchValue: "username" }
   ];
 
   onGetSearchMemberInput(searchMemberInput: string): void {

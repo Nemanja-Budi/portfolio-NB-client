@@ -1,0 +1,115 @@
+<div class="grid grid-rows-[0.15fr,1fr] h-full md:w-full w-[80%] mx-auto" *ngIf="formInitialized">
+    <div class="text-[#fff8] text-4xl flex justify-center items-center">
+        <h3 class="">
+            <span class="" *ngIf="addNew">Add</span>
+            <span class="" *ngIf="!addNew">Update</span>
+            Member
+        </h3>
+    </div>
+    <div class="flex justify-center items-center h-full text-[#2272ff] ">
+        <main class="bg-transparent/60 rounded-md p-6  shdw border-[#2272ff] border-2 text-[#2272ff]">
+            <form [formGroup]="memberForm" (ngSubmit)="submit()" autocomplete="off" class="flex flex-col gap-4">
+
+                <div class="flex flex-col gap-1">
+                    <label for="firstName">First name</label>
+                    <input 
+                        type="text" 
+                        formControlName="firstName" 
+                        placeholder="First Name" 
+                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        [class.is-invalid]="submitted && memberForm.get('firstName')?.errors">
+                    <span 
+                        class="text-danger" 
+                        *ngIf="submitted && memberForm.get('firstName')?.hasError('required')">
+                            First name is required
+                    </span>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="lastName">Last name</label>
+                    <input 
+                        type="text" 
+                        formControlName="lastName" 
+                        placeholder="Last Name" 
+                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        [class.is-invalid]="submitted && memberForm.get('lastName')?.errors">
+                    <span 
+                        class="text-danger" 
+                        *ngIf="submitted && memberForm.get('lastName')?.hasError('required')">
+                            Last name is required
+                    </span>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="userName">User name</label>
+                    <input 
+                        type="text" 
+                        formControlName="userName" 
+                        placeholder="User Name" 
+                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        [class.is-invalid]="submitted && memberForm.get('userName')?.errors">
+                    <span 
+                        class="text-danger" 
+                        *ngIf="submitted && memberForm.get('userName')?.hasError('required')">
+                        User name is required
+                    </span>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="password">Password</label>
+                    <input 
+                        type="text" 
+                        formControlName="password" 
+                        placeholder="Password" 
+                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        [class.is-invalid]="submitted && memberForm.get('password')?.errors"
+                        (change)="passwordOnChange()">
+                    <span 
+                        class="text-danger" 
+                        *ngIf="submitted && memberForm.get('password')?.hasError('required')">
+                            Password name is required
+                    </span>
+                    <span 
+                        class="text-danger" 
+                        *ngIf="submitted && memberForm.get('password')?.hasError('minlength') || memberForm.get('password')?.hasError('maxlength')">
+                            Password must be at least 6, and maximum 15 characters
+                    </span>
+                    <div *ngIf="!addNew" class="text-[#f23838] mt-2">
+                        <span class="text-blue-600 fw-bold">Note:</span>
+                        If you don't intend to change the member password, then leave the password field empty
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="roles">Roles:</label>
+                    </div>
+                    <div class="col-10">
+                        <div class="btn-group">
+                            <ng-container *ngFor="let role of applicationRoles">
+                                <input 
+                                    type="checkbox" 
+                                    class="btn-check" 
+                                    id="{{role}}" 
+                                    (change)="roleOnChange(role)" 
+                                    [checked]="existingMemberRoles.includes(role)"
+                                    [class.is-invalid]="submitted && memberForm.get('roles')?.errors">
+                                    <label 
+                                        for="{{role}}" 
+                                        class="btn btn-outline-primary">
+                                        {{role}}
+                                    </label>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-danger" *ngIf="submitted && memberForm.get('roles')?.hasError('required')">
+                    Please select at least one role
+                </div>
+                <div class="form-floating" *ngIf="errorMessages.length > 0">
+                    <!-- <app-validation-messages [errorMessages]="errorMessages"></app-validation-messages> -->
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <button class="border border-[#2272ff] rounded-md edit-member-button" type="submit">{{addNew ? 'Create' : 'Update'}} Member</button>
+                    <button class="back-to-user-manager-button" type="button" routerLink="/admin/user-manager">Back to list</button>      
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
