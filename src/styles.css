@@ -329,7 +329,7 @@ body,
   }
 
 .modal::backdrop {
-    background: hsla(0, 82%, 51%, 0.1);
+    background: hsla(0, 0%, 100%, 0.1);
         backdrop-filter: blur(0.1rem);
 }
 
@@ -338,7 +338,7 @@ body,
     top: 50%; /* Centriranje vertikalno */
     left: 50%; /* Centriranje horizontalno */
     transform: translate(-50%, -50%); /* Pomaknite dijalog na sredinu */
-    background-color: green;
+    background-color: rgb(195, 197, 195);
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;

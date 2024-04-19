@@ -1,9 +1,10 @@
 <!-- 7 -->
-<div class="p-5 flex flex-col gap-3">
+<div class="p-5 flex flex-col gap-10">
     <div class="flex justify-between">
-        <button routerLink="/admin" class="flex items-center gap-0.5 w-fit"><span class="text-3xl font-extrabold mb-1">←</span>Contact manager</button>
-        <button routerLink="/admin/add-new-user" class="bg-transparent/60 px-2 py-1 rounded-md text-white">Add new User</button>
+        <button routerLink="/admin" class="flex items-center gap-0.5 w-fit bg-transparent/60 px-2 py-1 rounded-md text-white"><span class="text-3xl font-extrabold mb-1">←</span>Contact manager</button>
+        <button routerLink="/admin/add-new-user" class="bg-transparent/60 px-2 py-1 rounded-md text-white"><span class="font-bold">+</span> Add new User</button>
     </div>
+    <div class="bg-slate-800/40 rounded-md p-3">
     <div>
         <app-admin-user-search></app-admin-user-search>
     </div>
@@ -17,7 +18,7 @@
             <div class="text-center">Lock/Unlock</div>
             <div></div>
         </div>
-        <div *ngIf="membersLength == 0"><p class="text-center text-red-500 p-2 col-span-8">Nema rezultata za zadatu pretragu</p></div>
+        <div *ngIf="membersLength == 0"><p class="text-center text-black font-bold p-2 col-span-8">Nema rezultata za zadatu pretragu</p></div>
         <div 
             class="grid border-2 border-black md:border-none md:grid md:grid-cols-8 even:bg-slate-600 odd:bg-slate-700 rounded-lg" 
             *ngFor="let member of members | async ; let i = index">
@@ -96,15 +97,21 @@
                     routerLink="/admin/edit-user/{{member.id}}">
                     Edit
                 </button>
-                <button class="w-full rounded-lg text-white flex justify-center items-center bg-red-600 contact-list-btn">Delete</button>
+                <button (click)="onDeleteUser(deleteUser, member.id)" class="w-full rounded-lg text-white flex justify-center items-center bg-red-600 contact-list-btn">Delete</button>
             </div>
         </div>
         <!-- <p *ngIf="noResultsMessage">{{ noResultsMessage }}</p> -->
     
     </div>
+    </div>
 </div>
 
-<!-- <dialog #editUser class="modal">
-    <app-admin-edit-member></app-admin-edit-member>
-    <button (click)="onCloseModal(editUser)">Close</button>
-</dialog> -->
+<dialog #deleteUser class="modal">
+    <div class="flex flex-col gap-3">
+        <h2>Are you sure you want to delete this member?</h2>
+        <div class="grid grid-cols-2 gap-2">
+            <button class="bg-[#4BB543] rounded-md text-white" (click)="onConfirm()">Yes</button>
+            <button class="bg-red-600 rounded-md text-white" (click)="onCloseModal()">Close</button>
+        </div>
+    </div>
+</dialog>

@@ -13,17 +13,37 @@ export class AdminUserManagerComponent {
 
   membersLength!: number;
   adminService: AdminService = inject(AdminService);
+  memberToDelete: Member | undefined;
+  modalDialog: HTMLDialogElement | undefined;
   members: Observable<Member[]> = this.adminService.getMembers().pipe(map((members) => {
     this.membersLength = members.length
     return members;
   }));
 
-  onEditUser(editUser: HTMLDialogElement): void {
+  onDeleteUser(editUser: HTMLDialogElement, member_id: string): void {
     editUser.showModal();
+    this.findMember(member_id).subscribe({
+      next: (member) => {
+        if(!member) return;
+        this.memberToDelete = member;
+        this.modalDialog = editUser;
+      }
+    });
   }
 
-  onCloseModal(editUser: HTMLDialogElement): void {
-    editUser.close();
+  onConfirm(): void {
+    if(this.memberToDelete) {
+      this.adminService.deleteMember(this.memberToDelete.id).subscribe({
+        next: () => {
+          this.members = this.adminService.getMembers();
+          this.modalDialog?.close();
+        }
+      });
+    }
+  }
+
+  onCloseModal(): void {
+    this.modalDialog?.close();
   }
 
   onLockMember(member_id: string): void {
@@ -36,6 +56,15 @@ export class AdminUserManagerComponent {
     this.adminService.unlockMember(member_id).subscribe({
       next: () => this.members = this.adminService.getMembers()
     });
+  }
+
+  private findMember(id: string): Observable<Member | undefined> {
+    return this.members.pipe(
+      map((members: Member[]) => {
+        const foundMember = members.find((member) => member.id === id);
+        return foundMember ? foundMember : undefined;
+      })
+    );
   }
 
 }
