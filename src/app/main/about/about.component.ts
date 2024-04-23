@@ -24,7 +24,7 @@ type CustomOtherCourses = {
 export class AboutComponent {
 
   maxProgressValue: number = 10;
-  
+
   ostaleVestine: string [] = ['Git', 'Github', 'Angular CLI', 'Windows CMD', 'Linux Bash', 'Visual Studio Code', 'Visual Studio','Postman'];
   
   frontEndVestine: CustomSkills[] = [
@@ -49,7 +49,7 @@ export class AboutComponent {
     { name: 'Javascript', link: 'https://www.udemy.com/course/the-complete-javascript-course'},
     { name: 'Angular', link: 'https://www.udemy.com/course/the-complete-guide-to-angular-2'},
     { name: '.NET', link: 'https://www.udemy.com/course/build-rest-apis-with-aspnet-core-web-api-entity-framework'},
-    { name: 'Javascript', link: 'https://www.udemy.com/course/aspnet-core-identity-with-angular-jwt-email-confirmation'},
+    { name: 'Angular and .NET', link: 'https://www.udemy.com/course/aspnet-core-identity-with-angular-jwt-email-confirmation'},
   ];
 
   otherCourses: CustomOtherCourses[] = [

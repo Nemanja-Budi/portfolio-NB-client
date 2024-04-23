@@ -68,7 +68,7 @@ body,
 
 
 .custom-card {
-    font-size: clamp(0.9rem, 1.5vw, 3.9rem);
+    font-size: clamp(0.9rem, 1.1vw, 2.9rem);
 }
 
 .about-skils {
