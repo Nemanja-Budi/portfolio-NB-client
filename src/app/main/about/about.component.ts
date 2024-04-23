@@ -24,10 +24,11 @@ type CustomOtherCourses = {
 export class AboutComponent {
 
   maxProgressValue: number = 10;
+  isShowen: boolean = false;
 
-  ostaleVestine: string [] = ['Git', 'Github', 'Angular CLI', 'Windows CMD', 'Linux Bash', 'Visual Studio Code', 'Visual Studio','Postman'];
+  additionalSkills: string [] = ['Git', 'Github', 'Angular CLI', 'Windows CMD', 'Linux Bash', 'Visual Studio Code', 'Visual Studio','Postman'];
   
-  frontEndVestine: CustomSkills[] = [
+  frontEndSkills: CustomSkills[] = [
     { name: 'HTML 5', progressValue: 10 },
     { name: 'CSS 3', progressValue: 7 },
     { name: 'Sass', progressValue: 7 },
@@ -37,7 +38,7 @@ export class AboutComponent {
     { name: 'Angular', progressValue: 8 },
   ];
 
-  backEndVestine: CustomSkills[] = [
+  backEndSkills: CustomSkills[] = [
     { name: 'C#', progressValue: 6 },
     { name: 'SQL Server', progressValue: 7 },
     { name: 'Firebase', progressValue: 7 },
@@ -57,5 +58,14 @@ export class AboutComponent {
     { headline: 'Codecademy', name: 'C#', link: 'https://www.codecademy.com/enrolled/courses/learn-c-sharp'},
     { headline: 'freeCodeCamp', name: 'Responsive Web Design', link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design'},
   ];
+
+  aboutMeText: string = `The possibilities offered by web development inspire me, driving my active pursuit of a career in this dynamic field. I am dedicated to continuous improvement, expanding my skills to deliver innovative and efficient solutions.
+    My commitment to advancing as a web developer is profound. Recognizing the demand for ongoing learning in the technology industry, I focus on acquiring the knowledge and experience essential for success in this dynamic environment.
+    I relish the challenges inherent in web development, eagerly anticipating opportunities for growth and advancement. I am motivated by my aspiration to create intuitive, inspiring web applications that enhance user experiences and contribute to business success.
+    My passion for programming fuels my visionary approach to web application development. I am dedicated to continuously improving my skills and actively seek opportunities to contribute to innovative projects and teams.`;
+
+  onChangeShow(): void {
+    this.isShowen = !this.isShowen;
+  }
 
 }

@@ -1,76 +1,91 @@
 <div class="grid grid-rows-[auto,1fr] h-full w-full md:w-[85%] lg:w-[70%] mx-auto p-6 md:p-3 gap-3">
     <h2 class="text-center text-[#fff8] text-3xl">About me</h2>
-    <div class="flex flex-col gap-3">
-        <div class="mb-5 mt-5">
-            The possibilities offered by web development inspire me, driving my active pursuit of a career in this dynamic field. I am dedicated to continuous improvement, expanding my skills to deliver innovative and efficient solutions.
-            My commitment to advancing as a web developer is profound. Recognizing the demand for ongoing learning in the technology industry, I focus on acquiring the knowledge and experience essential for success in this dynamic environment.
-            I relish the challenges inherent in web development, eagerly anticipating opportunities for growth and advancement. I am motivated by my aspiration to create intuitive, inspiring web applications that enhance user experiences and contribute to business success.
-            My passion for programming fuels my visionary approach to web application development. I am dedicated to continuously improving my skills and actively seek opportunities to contribute to innovative projects and teams.
-  
+    <div class="flex flex-col gap-5 ">
+        <div class="mb-5 mt-5 about-me-text bg-transparent/60 p-3 rounded-md text-[#2272ff] border-[#2272ff] border-2">
+            <p class="hidden md:block">
+               {{aboutMeText}}
+            </p>
+            <div class="block md:hidden">
+                <p *ngIf="aboutMeText.length < 230">{{aboutMeText}}</p>
+                <p *ngIf="aboutMeText.length > 230 && !isShowen">
+                    {{aboutMeText.slice(0,230)}}...
+                    <button class="text-[#fff8]" (click)="onChangeShow()"> (Show more) </button>
+                </p>
+                <p *ngIf="aboutMeText.length > 230 && isShowen">
+                    {{aboutMeText}}
+                    <button class="text-[#fff8]" (click)="onChangeShow()"> (Show less) </button>
+                </p>
+            </div>
         </div>
-        <details class="grid grid-rows-[auto,1fr] bg-transparent/60 p-3 rounded-md text-white">
-            <summary class=" text-[#fff8] text-2xl cursor-pointer">Obrazovanje</summary>
-            <div class="grid grid-cols-2 gap-2 mt-2">
-                <div>
-                    <p>Srednja tehnička škola Nikola Tesla</p>
-                    <p>Elektrotehničar računara 2011 - 2015</p>
+        <div class="flex flex-col gap-3">
+            <details class="grid grid-rows-[auto,1fr] bg-transparent/60 p-3 rounded-md text-white border-[#2272ff] border-2">
+                <summary class="text-[#fff8] text-2xl cursor-pointer">Education</summary>
+                <div class="grid grid-cols-2 gap-2 mt-2">
+                    <div>
+                        <p>Srednja tehnička škola Nikola Tesla</p>
+                        <p>Elektrotehničar računara 2011 - 2015</p>
+                    </div>
+                    <div>
+                        <p>Fakultet tehničkih nauka u Novom Sadu</p>
+                        <p>Energetika elektronika i telekomunikacije 2015 -</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Fakultet tehničkih nauka u Novom Sadu</p>
-                    <p>Energetika elektronika i telekomunikacije 2015 -</p>
+            </details>
+            <details class="bg-transparent/60 p-3 rounded-md text-white border-[#2272ff] border-2">
+                <summary class="text-[#fff8] text-2xl cursor-pointer">Experience</summary>
+                <p class="mt-2">I do not have professional experience as a web developer yet, but I am dedicated to learning and improving every day. I am actively studying front-end and back-end technologies, building projects, and expanding my skills to achieve my goal of becoming a proficient web developer</p>
+            </details>
+            <details class="grid grid-rows-[auto,1fr] bg-transparent/60 p-3 rounded-md text-white break-words border-[#2272ff] border-2">
+                <summary class=" text-[#fff8] text-2xl cursor-pointer">Courses</summary>
+                <div class="grid grid-cols-2 gap-3 mt-3">
+                    <div class="flex flex-col gap-2">
+                        <h5 class="text-center text-[#fff8] text-lg">Udemy</h5>
+                        <ng-container *ngFor="let udemyCourse of udemyCourses">
+                            <p class="flex flex-col text-white">{{udemyCourse.name}} <a class="text-[#2272ff]" target="_blank" href="{{udemyCourse.link}}">{{udemyCourse.link}}</a></p>
+                        </ng-container>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <ng-container *ngFor="let otherCourses of otherCourses">
+                            <div class="flex flex-col gap-2">
+                                <h5 class="text-center text-[#fff8] text-lg">{{otherCourses.headline}}</h5>
+                                <p class="flex flex-col text-white">{{otherCourses.name}} <a class="text-[#2272ff]" target="_blank" href="{{otherCourses.link}}">{{otherCourses.link}}</a></p>
+                            </div>
+                        </ng-container>
+                    </div>
                 </div>
-            </div>
-        </details>
-        <details class="grid grid-rows-[auto,1fr] bg-transparent/60 p-3 rounded-md text-white break-words">
-            <summary class=" text-[#fff8] text-2xl cursor-pointer">Kursevi</summary>
-            <div class="grid grid-cols-2 gap-3 mt-3">
-                <div class="flex flex-col gap-2">
-                    <h5 class="text-center text-[#fff8] text-lg">Udemy</h5>
-                    <ng-container *ngFor="let udemyCourse of udemyCourses">
-                        <p class="flex flex-col text-white">{{udemyCourse.name}} <a class="text-[#2272ff]" target="_blank" href="{{udemyCourse.link}}">{{udemyCourse.link}}</a></p>
-                    </ng-container>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <ng-container *ngFor="let otherCourses of otherCourses">
-                        <div class="flex flex-col gap-2">
-                            <h5 class="text-center text-[#fff8] text-lg">{{otherCourses.headline}}</h5>
-                            <p class="flex flex-col text-white">{{otherCourses.name}} <a class="text-[#2272ff]" target="_blank" href="{{otherCourses.link}}">{{otherCourses.link}}</a></p>
-                        </div>
-                    </ng-container>
-                </div>
-            </div>
-        </details>
-        <div class="flex flex-col gap-2">
-            <details class="bg-transparent/60 p-3 rounded-md text-white ">
-                <summary class="text-[#fff8] text-2xl cursor-pointer">Vestine</summary>
+            </details>
+            <details class="bg-transparent/60 p-3 rounded-md text-white border-[#2272ff] border-2">
+                <summary class="text-[#fff8] text-2xl cursor-pointer">Skills</summary>
                 <div class="grid grid-cols-2 gap-3">
                     <div class="flex flex-col gap-1">
                         <h4 class="text-center text-[#fff8] text-xl">Front-end</h4>
-                        <ng-container *ngFor="let fVestina of frontEndVestine">
+                        <ng-container *ngFor="let fSkills of frontEndSkills">
                             <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                                <p>{{fVestina.name}}</p>
-                                <progress class="col-span-3 w-full custom-progress" value="{{fVestina.progressValue}}" max="{{maxProgressValue}}"></progress>
+                                <p>{{fSkills.name}}</p>
+                                <progress class="col-span-3 w-full custom-progress" value="{{fSkills.progressValue}}" max="{{maxProgressValue}}"></progress>
                             </div>
                         </ng-container>
                     </div>
                     <div class="flex flex-col gap-1">
                         <h4 class="text-center text-[#fff8] text-xl">Back-end</h4>
-                        <ng-container *ngFor="let bVestina of backEndVestine">
+                        <ng-container *ngFor="let bSkills of backEndSkills">
                             <div class="flex flex-col md:gap-2 md:grid md:grid-cols-4 md:items-center">
-                                <p>{{bVestina.name}}</p>
-                                <progress class="col-span-3 w-full custom-progress" value="{{bVestina.progressValue}}" max="{{maxProgressValue}}"></progress>
+                                <p>{{bSkills.name}}</p>
+                                <progress class="col-span-3 w-full custom-progress" value="{{bSkills.progressValue}}" max="{{maxProgressValue}}"></progress>
                             </div>
                         </ng-container>
                     </div>
                 </div>
             </details>
-            <details class="grid grid-rows-[auto,1fr] gap-1 bg-transparent/60 p-3 rounded-md text-white">
-                <summary class="text-[#fff8] text-2xl cursor-pointer">Ostalo</summary>
+            <details class="grid grid-rows-[auto,1fr] gap-1 bg-transparent/60 p-3 rounded-md text-white border-[#2272ff] border-2">
+                <summary class="text-[#fff8] text-2xl cursor-pointer">Additional skills</summary>
                 <ul class="grid grid-cols-4 md:flex md:items-center md:justify-between gap-3 mt-2">
-                    <li *ngFor="let ovestina of ostaleVestine">{{ovestina}}</li>
+                    <li *ngFor="let addSkills of additionalSkills">{{addSkills}}</li>
                 </ul>
             </details>
         </div>
     </div>
 </div>
+
+
 
