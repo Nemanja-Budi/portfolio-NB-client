@@ -22,24 +22,17 @@
             <div class="grid grid-cols-2 gap-3 mt-3">
                 <div class="flex flex-col gap-2">
                     <h5 class="text-center text-[#fff8] text-lg">Udemy</h5>
-                    <p class="flex flex-col text-white">Javascript <a class="text-[#2272ff]" target="_blank" href="https://www.udemy.com/course/the-complete-javascript-course">https://www.udemy.com/course/the-complete-javascript-course</a></p>
-                    <p class="flex flex-col text-white">Angular <a class="text-[#2272ff]" target="_blank" href="https://www.udemy.com/course/the-complete-guide-to-angular-2">https://www.udemy.com/course/the-complete-guide-to-angular-2</a></p>
-                    <p class="flex flex-col text-white">.NET <a class="text-[#2272ff]" target="_blank" href="https://www.udemy.com/course/build-rest-apis-with-aspnet-core-web-api-entity-framework">https://www.udemy.com/course/build-rest-apis-with-aspnet-core-web-api-entity-framework</a></p>
-                    <p class="flex flex-col text-white">Angular and .NET <a class="text-[#2272ff]" target="_blank" href="https://www.udemy.com/course/aspnet-core-identity-with-angular-jwt-email-confirmation">https://www.udemy.com/course/aspnet-core-identity-with-angular-jwt-email-confirmation</a></p>
+                    <ng-container *ngFor="let udemyCourse of udemyCourses">
+                        <p class="flex flex-col text-white">{{udemyCourse.name}} <a class="text-[#2272ff]" target="_blank" href="{{udemyCourse.link}}">{{udemyCourse.link}}</a></p>
+                    </ng-container>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <div class="flex flex-col gap-2">
-                        <h5 class="text-center text-[#fff8] text-lg">FTN - Informatika</h5>
-                        <p class="flex flex-col text-white">Frontend Web Development <a class="text-[#2272ff]" target="_blank" href="https://ftninformatika.com/kursevi/front-end-development/">https://ftninformatika.com/kursevi/front-end-development</a></p>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <h5 class="text-center text-[#fff8] text-lg">Codecademy</h5>
-                        <p class="flex flex-col text-white">C# <a class="text-[#2272ff]" target="_blank" href="https://www.codecademy.com/enrolled/courses/learn-c-sharp">https://www.codecademy.com/enrolled/courses/learn-c-sharp</a></p>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <h5 class="text-center text-[#fff8] text-lg">freeCodeCamp</h5>
-                        <p class="flex flex-col text-white">Responsive Web Design<a class="text-[#2272ff]" target="_blank" href="https://www.freecodecamp.org/learn/2022/responsive-web-design/">https://www.freecodecamp.org/learn/2022/responsive-web-design</a></p>
-                    </div>
+                    <ng-container *ngFor="let otherCourses of otherCourses">
+                        <div class="flex flex-col gap-2">
+                            <h5 class="text-center text-[#fff8] text-lg">{{otherCourses.headline}}</h5>
+                            <p class="flex flex-col text-white">{{otherCourses.name}} <a class="text-[#2272ff]" target="_blank" href="{{otherCourses.link}}">{{otherCourses.link}}</a></p>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </details>
@@ -49,71 +42,28 @@
                 <div class="grid grid-cols-2 gap-3">
                     <div class="flex flex-col gap-1">
                         <h4 class="text-center text-[#fff8] text-xl">Front-end</h4>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>HTML 5</p>
-                            <progress class="col-span-3 w-full custom-progress" value="10" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>CSS 3</p>
-                            <progress class="col-span-3 w-full custom-progress" value="7" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>Sass</p>
-                            <progress class="col-span-3 w-full custom-progress" value="7" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>Tailwind</p>
-                            <progress class="col-span-3 w-full custom-progress" value="9" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>Javascript</p>
-                            <progress class="col-span-3 w-full custom-progress" value="7" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>Typescript</p>
-                            <progress class="col-span-3 w-full custom-progress" value="8" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>Angular</p>
-                            <progress class="col-span-3 w-full custom-progress" value="8" max="10"></progress>
-                        </div>
+                        <ng-container *ngFor="let fVestina of frontEndVestine">
+                            <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
+                                <p>{{fVestina.name}}</p>
+                                <progress class="col-span-3 w-full custom-progress" value="{{fVestina.progressValue}}" max="{{maxProgressValue}}"></progress>
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="flex flex-col gap-1">
                         <h4 class="text-center text-[#fff8] text-xl">Back-end</h4>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>C#</p>
-                            <progress class="col-span-3 w-full custom-progress" value="6" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>SQL Server</p>
-                            <progress class="col-span-3 w-full custom-progress" value="7" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>Firebase</p>
-                            <progress class="col-span-3 w-full custom-progress" value="8" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p class="break-words">Entity Framework Core</p>
-                            <progress class="col-span-3 w-full custom-progress" value="7" max="10"></progress>
-                        </div>
-                        <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
-                            <p>ASP.NET Core Web API</p>
-                            <progress class="col-span-3 w-full custom-progress" value="6" max="10"></progress>
-                        </div>
+                        <ng-container *ngFor="let bVestina of backEndVestine">
+                            <div class="flex flex-col md:gap-2 md:grid md:grid-cols-4 md:items-center">
+                                <p>{{bVestina.name}}</p>
+                                <progress class="col-span-3 w-full custom-progress" value="{{bVestina.progressValue}}" max="{{maxProgressValue}}"></progress>
+                            </div>
+                        </ng-container>
                     </div>
                 </div>
             </details>
             <details class="grid grid-rows-[auto,1fr] gap-1 bg-transparent/60 p-3 rounded-md text-white">
                 <summary class="text-[#fff8] text-2xl cursor-pointer">Ostalo</summary>
                 <ul class="grid grid-cols-4 md:flex md:items-center md:justify-between gap-3 mt-2">
-                    <li>Git</li>
-                    <li>Github</li>
-                    <li>Angular CLI</li>
-                    <li>Windows CMD</li>
-                    <li>Linux Bash</li>
-                    <li>Visual Studio Code</li>
-                    <li>Visual Studio</li>
-                    <li>Postman</li>
+                    <li *ngFor="let ovestina of ostaleVestine">{{ovestina}}</li>
                 </ul>
             </details>
         </div>
