@@ -36,6 +36,7 @@ export class AboutComponent {
     { name: 'Javascript', progressValue: 7 },
     { name: 'Typescript', progressValue: 8 },
     { name: 'Angular', progressValue: 8 },
+    { name: 'Rxjs', progressValue: 7 },
   ];
 
   backEndSkills: CustomSkills[] = [
