@@ -14,8 +14,8 @@ export class AdminContactManagerComponent {
   adminService: AdminService = inject(AdminService);
   contactsLength!: number;
   contacts: Observable<Contact[]> = this.adminService.getContacts().pipe(map((contacts) => {
-    this.contactsLength = contacts.length
-    return contacts;
+    this.contactsLength = contacts.totalCount
+    return contacts.contacts;
   }));
   isAscending: boolean = this.adminService.contactQuearyParamsSubject.value.isAscending;
 
@@ -29,7 +29,7 @@ export class AdminContactManagerComponent {
 
   onDeleteContact(contact_id: string): void {
     this.adminService.deleteContact(contact_id).subscribe({
-      next: () => this.contacts = this.adminService.getContacts()
+      next: () => this.contacts = this.adminService.getContacts().pipe(map((contacts) => contacts.contacts))
     });
   }
 }

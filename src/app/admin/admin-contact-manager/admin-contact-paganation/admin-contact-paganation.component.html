@@ -1,0 +1,51 @@
+<div class="flex justify-center items-center gap-10 text-white font-bold p-2 ">
+    <div class="grid grid-cols-[1fr,0.1fr] justify-center gap-3">
+        <div class="flex justify-end items-center">
+            <button 
+                (click)="goToFirstPage()"
+                *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !==1 && this.adminService.contactQuearyParamsSubject.value.pageNumber !==2"
+                class="px-2 py-2 bg-transparent/60 rounded border-[#2272ff] border">
+                《
+            </button>
+        </div>
+        <div  class="flex justify-end items-center">
+            <button 
+                *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !==1"   
+                class="px-2 py-2  bg-transparent/60 rounded border-[#2272ff] border" 
+                [disabled]="this.adminService.contactQuearyParamsSubject.value.pageNumber === 1 "
+                (click)="goToPreviousPage()">
+                〈
+            </button>
+        </div>
+    </div>   
+    <div class="flex justify-center items-center flex-wrap rounded gap-3">
+        <ng-container *ngFor="let page of visiblePages()">
+            <button
+                class="bg-transparent/60  p-2 rounded flex justify-center items-center border-[#2272ff] border"  
+                [ngClass]="{'bg-black': this.adminService.contactQuearyParamsSubject.value.pageNumber === page, 'border-none': this.adminService.contactQuearyParamsSubject.value.pageNumber === page, 'bg-transparent/60 ': this.adminService.contactQuearyParamsSubject.value.pageNumber !== page, 'py-1.5': this.adminService.contactQuearyParamsSubject.value.pageNumber === page }" 
+                (click)="goToPage(page)"
+                [disabled]="this.adminService.contactQuearyParamsSubject.value.pageNumber === page">
+                {{ page }}
+            </button>
+        </ng-container>
+    </div>
+    <div class="grid grid-cols-[0.1fr,1fr] gap-3">
+        <div class="flex justify-start items-center">
+            <button 
+                *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !== adminService.currentSize.value && adminService.isNula.value == false" 
+                class="px-2 py-2 bg-transparent/60  rounded border-[#2272ff] border" 
+                (click)="goToNextPage()"
+                [disabled]="this.adminService.contactQuearyParamsSubject.value.pageNumber === adminService.currentSize.value">
+                〉
+            </button>
+        </div>
+        <div class="flex justify-start items-center">
+            <button  
+                (click)="goToLastPage()" 
+                *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !== adminService.currentSize.value && this.adminService.contactQuearyParamsSubject.value.pageNumber !== adminService.currentSize.value-1 && adminService.isNula.value == false"
+                class="px-2 py-2 bg-transparent/60 rounded font-bold flex justify-center items-center border-[#2272ff] border ">
+                》
+            </button>
+        </div>
+    </div>
+</div>

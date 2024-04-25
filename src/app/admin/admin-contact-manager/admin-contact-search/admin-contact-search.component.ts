@@ -12,9 +12,16 @@ export class AdminContactSearchComponent {
   adminService: AdminService = inject(AdminService);  
 
   onGetSearchContactInput(searchContactInput: string): void {
+
+    this.adminService.isSearchContactChange.next(true);
+    if(searchContactInput == '') {
+      this.adminService.isSearchContactChange.next(false);
+    }
+
     this.adminService.contactQuearyParamsSubject.next({
       ...this.adminService.contactQuearyParamsSubject.value,
       filterQuery: searchContactInput,
+      pageNumber: 1
     });
   }
 }

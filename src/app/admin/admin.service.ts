@@ -1,11 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, map, switchMap } from 'rxjs';
 import { Member } from './models/member.model';
 import { Contact } from '../main/models/contact.model';
 import { CustomQueryParamas } from '../shared/models/custom-queryparams.model';
 import { environment } from 'src/environments/environment.development';
 import { MemberAddEdit } from './models/member-add-edit';
+import { ContactList } from '../main/models/contact-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class AdminService {
     sortBy: 'NameOfCompany',
     isAscending: true,
     pageNumber: 1,
-    pageSize: 5
+    pageSize: 1
   }
 
   memberQuearyParams: CustomQueryParamas = {
@@ -33,6 +34,9 @@ export class AdminService {
   contactQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.contactsQuearyParams);
   memberQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.memberQuearyParams);
   
+  isSearchContactChange: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  currentSize: BehaviorSubject<number> = new BehaviorSubject<number>(0)
+  isNula: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) { }
 
   getMembers(): Observable<Member[]> {
@@ -72,7 +76,7 @@ export class AdminService {
     return this.http.delete(`${environment.appUrl}/admin/delete-member/${member_id}`, {});
   }
 
-  getContacts(): Observable<Contact[]> {
+  getContacts(): Observable<ContactList> {
     return this.contactQuearyParamsSubject.pipe(
       switchMap(params => {
         const options = {
@@ -84,7 +88,15 @@ export class AdminService {
             .set('pageNumber', params.pageNumber || 1)
             .set('pageSize', params.pageSize || 5) 
         };
-        return this.http.get<Contact[]>(`${environment.appUrl}/contacts/get-contacts`, options);
+        return this.http.get<ContactList>(`${environment.appUrl}/contacts/get-contacts`, options).pipe(map((contacts) => {
+          this.currentSize.next(Math.ceil(contacts.totalCount/params.pageSize));
+          if(contacts.totalCount == 0) {
+            this.isNula.next(true);
+          } else {
+            this.isNula.next(false);
+          }
+          return contacts;
+        }));
       })
     );
   }

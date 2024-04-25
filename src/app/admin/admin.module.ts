@@ -9,6 +9,7 @@ import { AdminContactSearchComponent } from './admin-contact-manager/admin-conta
 import { AdminUserSearchComponent } from './admin-user-manager/admin-user-search/admin-user-search.component';
 import { AdminEditMemberComponent } from './admin-user-manager/admin-edit-member/admin-edit-member.component';
 import { AccountModule } from '../account/account.module';
+import { AdminContactPaganationComponent } from './admin-contact-manager/admin-contact-paganation/admin-contact-paganation.component';
 
 
 
@@ -22,6 +23,7 @@ import { AccountModule } from '../account/account.module';
     AdminContactSearchComponent,
     AdminUserSearchComponent,
     AdminEditMemberComponent,
+    AdminContactPaganationComponent,
 
   ],
   imports: [
