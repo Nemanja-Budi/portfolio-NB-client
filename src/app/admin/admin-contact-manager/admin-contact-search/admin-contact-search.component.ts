@@ -9,7 +9,9 @@ import { AdminService } from '../../admin.service';
 })
 export class AdminContactSearchComponent {
 
-  adminService: AdminService = inject(AdminService);  
+  adminService: AdminService = inject(AdminService);
+  
+  itemsPerPage: number[] = [5,10,15];
 
   onGetSearchContactInput(searchContactInput: string): void {
 
@@ -22,6 +24,14 @@ export class AdminContactSearchComponent {
       ...this.adminService.contactQuearyParamsSubject.value,
       filterQuery: searchContactInput,
       pageNumber: 1
+    });
+  }
+
+  onChangeItemPerPage(item: number): void {
+    this.adminService.contactQuearyParamsSubject.next({
+      ...this.adminService.contactQuearyParamsSubject.value,
+      pageNumber: 1,
+      pageSize: item
     });
   }
 }

@@ -9,9 +9,7 @@ import { AdminService } from '../../admin.service';
 export class AdminContactPaganationComponent {
 
   adminService: AdminService = inject(AdminService);
-  
   currentPage: number = this.adminService.contactQuearyParamsSubject.value.pageNumber;
-  itemsPerPage: number = this.adminService.contactQuearyParamsSubject.value.pageSize;
 
   visiblePages(): number[] {
     const maxPagesToShow = 3;

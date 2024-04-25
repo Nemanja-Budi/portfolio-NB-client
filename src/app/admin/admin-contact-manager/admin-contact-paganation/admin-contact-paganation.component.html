@@ -4,14 +4,14 @@
             <button 
                 (click)="goToFirstPage()"
                 *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !==1 && this.adminService.contactQuearyParamsSubject.value.pageNumber !==2"
-                class="px-2 py-2 bg-transparent/60 rounded border-[#2272ff] border">
+                class="aspect-square w-10 bg-transparent/60 rounded border-[#2272ff] border">
                 《
             </button>
         </div>
         <div  class="flex justify-end items-center">
             <button 
                 *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !==1"   
-                class="px-2 py-2  bg-transparent/60 rounded border-[#2272ff] border" 
+                class="aspect-square w-10  bg-transparent/60 rounded border-[#2272ff] border" 
                 [disabled]="this.adminService.contactQuearyParamsSubject.value.pageNumber === 1 "
                 (click)="goToPreviousPage()">
                 〈
@@ -33,7 +33,7 @@
         <div class="flex justify-start items-center">
             <button 
                 *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !== adminService.currentSize.value && adminService.isNula.value == false" 
-                class="px-2 py-2 bg-transparent/60  rounded border-[#2272ff] border" 
+                class="aspect-square w-10 bg-transparent/60  rounded border-[#2272ff] border" 
                 (click)="goToNextPage()"
                 [disabled]="this.adminService.contactQuearyParamsSubject.value.pageNumber === adminService.currentSize.value">
                 〉
@@ -43,7 +43,7 @@
             <button  
                 (click)="goToLastPage()" 
                 *ngIf="this.adminService.contactQuearyParamsSubject.value.pageNumber !== adminService.currentSize.value && this.adminService.contactQuearyParamsSubject.value.pageNumber !== adminService.currentSize.value-1 && adminService.isNula.value == false"
-                class="px-2 py-2 bg-transparent/60 rounded font-bold flex justify-center items-center border-[#2272ff] border ">
+                class="aspect-square w-10 bg-transparent/60 rounded font-bold flex justify-center items-center border-[#2272ff] border ">
                 》
             </button>
         </div>

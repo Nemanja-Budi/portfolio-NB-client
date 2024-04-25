@@ -19,7 +19,7 @@ export class AdminService {
     sortBy: 'NameOfCompany',
     isAscending: true,
     pageNumber: 1,
-    pageSize: 1
+    pageSize: 5
   }
 
   memberQuearyParams: CustomQueryParamas = {
