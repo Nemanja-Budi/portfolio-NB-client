@@ -18,8 +18,7 @@
             <ng-container
               *ngFor="let contact of contacts | async; let i = index">
               <tr class="group  hover:bg-transparent/70">
-                <td data-cell="br" class="td-custom2 text-[#2272ff] px-2  py-1 ">{{ (adminService.contactQuearyParamsSubject.value.pageNumber - 1) * adminService.contactQuearyParamsSubject.value.pageSize + i + 1 }}
-</td>
+                <td data-cell="br" class="td-custom2 text-[#2272ff] px-2  py-1 ">{{ (adminService.contactQuearyParamsSubject.value.pageNumber - 1) * adminService.contactQuearyParamsSubject.value.pageSize + i + 1 }}</td>
                 <td data-cell="ime" class="td-custom2 px-1 py-1 text-left">{{ contact.nameOfCompany }}</td>
                 <td data-cell="email" class="td-custom2 px-1 py-1 text-left ">{{ contact.email}}</td>
                 <td data-cell="poruka" class="td-custom2 px-1 py-1 ">{{ contact.message}}</td>
