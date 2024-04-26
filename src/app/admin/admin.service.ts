@@ -7,6 +7,7 @@ import { CustomQueryParamas } from '../shared/models/custom-queryparams.model';
 import { environment } from 'src/environments/environment.development';
 import { MemberAddEdit } from './models/member-add-edit';
 import { ContactList } from '../main/models/contact-list.model';
+import { MemberList } from './models/member-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class AdminService {
     sortBy: 'firstname',
     isAscending: true,
     pageNumber: 1,
-    pageSize: 5
+    pageSize: 1
   }
 
   contactQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.contactsQuearyParams);
@@ -37,9 +38,13 @@ export class AdminService {
   isSearchContactChange: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentSize: BehaviorSubject<number> = new BehaviorSubject<number>(0)
   isNula: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  currentSizeMember: BehaviorSubject<number> = new BehaviorSubject<number>(0)
+  isNulaMember: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private http: HttpClient) { }
 
-  getMembers(): Observable<Member[]> {
+  getMembers(): Observable<MemberList> {
     return this.memberQuearyParamsSubject.pipe(
       switchMap(params => {
         const options = {
@@ -51,7 +56,15 @@ export class AdminService {
             .set('pageNumber', params.pageNumber || 1)
             .set('pageSize', params.pageSize || 5) 
         };
-        return this.http.get<Member[]>(`${environment.appUrl}/admin/get-members`, options);
+        return this.http.get<MemberList>(`${environment.appUrl}/admin/get-members`, options).pipe(map((members) => {
+          this.currentSizeMember.next(Math.ceil(members.totalCount/params.pageSize));
+          if(members.totalCount == 0) {
+            this.isNulaMember.next(true);
+          } else {
+            this.isNulaMember.next(false);
+          }
+          return members;
+        }));
       })
     );
   }

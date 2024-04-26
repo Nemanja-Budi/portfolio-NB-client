@@ -16,8 +16,9 @@ export class AdminUserManagerComponent {
   memberToDelete: Member | undefined;
   modalDialog: HTMLDialogElement | undefined;
   members: Observable<Member[]> = this.adminService.getMembers().pipe(map((members) => {
-    this.membersLength = members.length
-    return members;
+    this.membersLength = members.members.length
+    console.log(members.totalCount);
+    return members.members;
   }));
 
   onDeleteUser(editUser: HTMLDialogElement, member_id: string): void {
@@ -35,7 +36,7 @@ export class AdminUserManagerComponent {
     if(this.memberToDelete) {
       this.adminService.deleteMember(this.memberToDelete.id).subscribe({
         next: () => {
-          this.members = this.adminService.getMembers();
+          this.members = this.adminService.getMembers().pipe(map((members) => members.members));
           this.modalDialog?.close();
         }
       });
@@ -48,13 +49,13 @@ export class AdminUserManagerComponent {
 
   onLockMember(member_id: string): void {
     this.adminService.lockMember(member_id).subscribe({
-      next: () => this.members = this.adminService.getMembers()
+      next: () => this.members = this.adminService.getMembers().pipe(map((members) => members.members))
     });
   }
 
   onUnlockMember(member_id: string): void {
     this.adminService.unlockMember(member_id).subscribe({
-      next: () => this.members = this.adminService.getMembers()
+      next: () => this.members = this.adminService.getMembers().pipe(map((members) => members.members))
     });
   }
 

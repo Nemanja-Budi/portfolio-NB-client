@@ -28,6 +28,7 @@ export class AdminUserSearchComponent {
     this.adminService.memberQuearyParamsSubject.next({
       ...this.adminService.memberQuearyParamsSubject.value,
       filterQuery: searchMemberInput,
+      pageNumber: 1
     });
   }
 
@@ -36,7 +37,8 @@ export class AdminUserSearchComponent {
     this.adminService.memberQuearyParamsSubject.next({
       ...this.adminService.memberQuearyParamsSubject.value,
       filterOn: memberSelect,
-      sortBy: memberSelect
+      sortBy: memberSelect,
+      pageNumber: 1
     });
   }
   
