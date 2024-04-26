@@ -1,20 +1,13 @@
 <div class="grid grid-cols-[1fr,auto,1fr] gap-3">
-    <div class="flex gap-5">
-        <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-        </div>
-        <div class="w-full">
-            <select  
-                name="memberSelect" 
-                id="memberSelect"
-                #memberSelect
-                (change)="onGetMemberSelect(memberSelect.value)"
-                class="bg-transparent outline-none border-transparent/60 border custom-input  rounded-md p-1 placeholder:text-transparent/60  placeholder:p-1 w-full">
-                <option *ngFor="let searchMember of selectValues" value="{{searchMember.searchValue}}">{{searchMember.searchTerm}}</option>
-            </select>
-        </div>
+    <div class="w-full">
+        <select  
+            name="memberSelect" 
+            id="memberSelect"
+            #memberSelect
+            (change)="onGetMemberSelect(memberSelect.value)"
+            class="bg-transparent outline-none border-transparent/60 border custom-input  rounded-md p-1 placeholder:text-transparent/60  placeholder:p-1 w-full">
+            <option *ngFor="let searchMember of selectValues" value="{{searchMember.searchValue}}">{{searchMember.searchTerm}}</option>
+        </select>
     </div>
     <div><span (click)="onChangeSortDirection()" class="font-extrabold cursor-pointer text-2xl">{{isAscending ? '↓' : '↑'}}</span></div>
     <div class="w-full">

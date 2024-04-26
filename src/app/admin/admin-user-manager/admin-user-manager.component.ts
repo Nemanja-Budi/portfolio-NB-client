@@ -15,9 +15,9 @@ export class AdminUserManagerComponent {
   adminService: AdminService = inject(AdminService);
   memberToDelete: Member | undefined;
   modalDialog: HTMLDialogElement | undefined;
+  
   members: Observable<Member[]> = this.adminService.getMembers().pipe(map((members) => {
     this.membersLength = members.members.length
-    console.log(members.totalCount);
     return members.members;
   }));
 

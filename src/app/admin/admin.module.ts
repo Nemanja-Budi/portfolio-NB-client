@@ -11,6 +11,7 @@ import { AdminEditMemberComponent } from './admin-user-manager/admin-edit-member
 import { AccountModule } from '../account/account.module';
 import { AdminContactPaganationComponent } from './admin-contact-manager/admin-contact-paganation/admin-contact-paganation.component';
 import { AdminUserPaganationComponent } from './admin-user-manager/admin-user-paganation/admin-user-paganation.component';
+import { AdminShowItemsPerPageComponent } from './admin-show-items-per-page/admin-show-items-per-page.component';
 
 
 
@@ -26,6 +27,7 @@ import { AdminUserPaganationComponent } from './admin-user-manager/admin-user-pa
     AdminEditMemberComponent,
     AdminContactPaganationComponent,
     AdminUserPaganationComponent,
+    AdminShowItemsPerPageComponent,
 
   ],
   imports: [

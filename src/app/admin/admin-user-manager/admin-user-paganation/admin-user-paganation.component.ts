@@ -12,9 +12,6 @@ export class AdminUserPaganationComponent {
   currentPage: number = this.adminService.memberQuearyParamsSubject.value.pageNumber;
 
   visiblePages(): number[] {
-    console.log(this.currentPage);
-
-    console.log('pozivam se')
     const maxPagesToShow = 3;
     const startPage = Math.max(1, this.adminService.memberQuearyParamsSubject.value.pageNumber - 1);
     const endPage = Math.min(this.adminService.currentSizeMember.value, startPage + maxPagesToShow - 1);
