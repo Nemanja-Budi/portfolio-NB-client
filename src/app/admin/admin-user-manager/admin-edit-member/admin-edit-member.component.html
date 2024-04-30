@@ -1,13 +1,13 @@
-<div class="grid grid-rows-[0.15fr,1fr] h-full md:w-full w-[80%] mx-auto" *ngIf="formInitialized">
-    <div class="text-[#fff8] text-4xl flex justify-center items-center">
+<div class="grid grid-rows-[0.15fr,1fr] h-full md:w-full w-[90%] mx-auto" *ngIf="formInitialized">
+    <div class="text-[#BB4430] text-4xl flex justify-center items-center">
         <h3 class="">
             <span class="" *ngIf="addNew">Add</span>
             <span class="" *ngIf="!addNew">Update</span>
             Member
         </h3>
     </div>
-    <div class="flex justify-center items-center h-full text-[#2272ff] ">
-        <main class="bg-transparent/60 rounded-md p-6  shdw border-[#2272ff] border-2 text-[#2272ff]">
+    <div class="flex justify-center items-center h-full text-[#2272ff] w-full">
+        <main class="bg-transparent/20 rounded-md p-6 shadow shadow-black text-[#fff8] w-[90%] md:w-[70%] xl:w-[60%] 2xl:w-[50%] mx-auto">
             <form [formGroup]="memberForm" (ngSubmit)="submit()" autocomplete="off" class="flex flex-col gap-4">
 
                 <div class="flex flex-col gap-1">
@@ -16,7 +16,7 @@
                         type="text" 
                         formControlName="firstName" 
                         placeholder="First Name" 
-                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        class="bg-transparent/20 outline-none shadow shadow-black rounded-md p-3 placeholder:text-[#fff8]" 
                         [class.is-invalid]="submitted && memberForm.get('firstName')?.errors">
                     <span 
                         class="text-danger" 
@@ -30,7 +30,7 @@
                         type="text" 
                         formControlName="lastName" 
                         placeholder="Last Name" 
-                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        class="bg-transparent/20 outline-none shadow shadow-black rounded-md p-3 placeholder:text-[#fff8]" 
                         [class.is-invalid]="submitted && memberForm.get('lastName')?.errors">
                     <span 
                         class="text-danger" 
@@ -44,7 +44,7 @@
                         type="text" 
                         formControlName="userName" 
                         placeholder="User Name" 
-                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        class="bg-transparent/20 outline-none shadow shadow-black rounded-md p-3 placeholder:text-[#fff8]" 
                         [class.is-invalid]="submitted && memberForm.get('userName')?.errors">
                     <span 
                         class="text-danger" 
@@ -58,7 +58,7 @@
                         type="text" 
                         formControlName="password" 
                         placeholder="Password" 
-                        class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]" 
+                        class="bg-transparent/20 outline-none shadow shadow-black rounded-md p-3 placeholder:text-[#fff8]" 
                         [class.is-invalid]="submitted && memberForm.get('password')?.errors"
                         (change)="passwordOnChange()">
                     <span 
@@ -71,7 +71,7 @@
                         *ngIf="submitted && memberForm.get('password')?.hasError('minlength') || memberForm.get('password')?.hasError('maxlength')">
                             Password must be at least 6, and maximum 15 characters
                     </span>
-                    <div *ngIf="!addNew" class="text-[#f23838] mt-2">
+                    <div *ngIf="!addNew" class="text-[#fff8] mt-2">
                         <span class="text-blue-600 fw-bold">Note:</span>
                         If you don't intend to change the member password, then leave the password field empty
                     </div>
@@ -106,8 +106,8 @@
                     <!-- <app-validation-messages [errorMessages]="errorMessages"></app-validation-messages> -->
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <button class="border border-[#2272ff] rounded-md edit-member-button" type="submit">{{addNew ? 'Create' : 'Update'}} Member</button>
-                    <button class="back-to-user-manager-button" type="button" routerLink="/admin/user-manager">Back to list</button>      
+                    <button class="bg-transparent/20 px-5 py-2 rounded-md shadow shadow-black" type="submit">{{addNew ? 'Create' : 'Update'}}</button>
+                    <button class="bg-transparent/20 px-5 py-2 rounded-md shadow shadow-black" type="button" routerLink="/admin/user-manager">Back to list</button>      
                 </div>
             </form>
         </main>

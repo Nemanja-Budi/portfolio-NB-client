@@ -1,11 +1,11 @@
-<div class="bg-transparent/60 rounded-md p-6 w-96 shdw border-[#2272ff] border-2 text-[#2272ff]">
+<div class="bg-transparent/20 rounded-md p-6 shadow shadow-black text-[#fff8]">
     <form [formGroup]="contactForm" (ngSubmit)="onContact()" class="flex flex-col gap-4">
         <div class="flex flex-col gap-2">
             <label for="nameOfCompany">Name of Company</label>
             <input 
                 formControlName="nameOfCompany" 
                 type="text"
-                class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]"
+                class="bg-transparent/20 outline-none shadow shadow-black rounded-md p-3 placeholder:text-[#fff8]"
                 placeholder="Name of Company">
         </div>
         <div class="flex flex-col gap-2">
@@ -13,7 +13,7 @@
             <input 
                 type="text" 
                 formControlName="email"
-                class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]"
+                class="bg-transparent/20 outline-none shadow shadow-black  rounded-md p-3 placeholder:text-[#fff8]"
                 placeholder="Your email address">
         </div>
         <div class="flex flex-col gap-2">
@@ -23,12 +23,16 @@
                 id="message" 
                 cols="30" 
                 rows="4"
-                class="bg-transparent outline-none border-[#2272ff] border custom-input  rounded-md p-3 placeholder:text-[#2272ff]"
+                class="bg-transparent/20 outline-none shadow shadow-black rounded-md p-3 placeholder:text-[#fff8]"
                 placeholder="Message">
             </textarea>
         </div>
         <div class="flex justify-center items-center mt-2">
-            <button class="border border-[#2272ff] rounded-md login-button" type="submit">Submit</button>
+            <button 
+                class="bg-transparent/20 shadow shadow-black text-[#fff8] px-7 py-3 rounded-md " 
+                type="submit">
+                Submit
+            </button>
         </div>
     </form>
 </div>

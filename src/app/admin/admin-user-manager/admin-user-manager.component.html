@@ -1,108 +1,73 @@
-<div class="p-5 flex flex-col gap-10">
+<div class="p-5 flex flex-col gap-5">
     <div class="flex justify-between">
-        <button routerLink="/admin" class="flex items-center gap-0.5 w-fit bg-transparent/60 px-2 py-1 rounded-md text-white"><span class="text-3xl font-extrabold mb-1">←</span>Contact manager</button>
-        <button routerLink="/admin/add-new-user" class="bg-transparent/60 px-2 py-1 rounded-md text-white"><span class="font-bold">+</span> Add new User</button>
+        <button routerLink="/admin" class="flex items-center gap-0.5 w-fit bg-transparent/20 shadow shadow-black px-2 py-1 rounded-md text-[#fff8]"><span class="text-3xl font-extrabold mb-1">←</span>Contact manager</button>
+        <button routerLink="/admin/add-new-user" class="bg-transparent/20 shadow shadow-black px-2 py-1 rounded-md text-[#fff8]"><span class="font-bold">+</span> Add new User</button>
     </div>
     <div>
         <app-admin-show-items-per-page [isUser]="false"></app-admin-show-items-per-page>
     </div>
-    <div class="bg-slate-800/40 rounded-md p-3">
+    <div class="flex flex-col gap-5">
         <div>
             <app-admin-user-search></app-admin-user-search>
         </div>
-        <div class="grid grid-rows-[auto,1fr]  p-2 gap-2 contact-list-text">
-            <div class="hidden md:grid md:grid-cols-8  text-white/90  bg-slate-800 p-2 rounded-lg font-bold ">
-                <div>Ime</div>
-                <div>Prezime</div>
-                <div class="col-span-2">Username</div>
-                <div>Datum kreiranja</div>
-                <div>Uloge</div>
-                <div class="text-center">Lock/Unlock</div>
-                <div></div>
-            </div>
-            <div *ngIf="membersLength == 0"><p class="text-center text-black font-bold p-2 col-span-8">Nema rezultata za zadatu pretragu</p></div>
-            <div class="grid border-2 border-black md:border-none md:grid md:grid-cols-8 even:bg-slate-600 odd:bg-slate-700 rounded-lg" 
-                *ngFor="let member of members | async ; let i = index">
-
-                <div class="px-2 hidden md:grid items-center">{{member.firstName | titlecase}}</div>
-                <div class="px-2 grid grid-cols-2 md:hidden bg-slate-900 rounded-t-md">
-                    <p class="font-bold text-white">Ime:</p>
-                    <p class="text-white">{{member.firstName | titlecase}}</p>
-                </div>
-
-                <div class="px-2 hidden md:grid items-center">{{member.lastName | titlecase}}</div>
-                <div class="px-2 grid grid-cols-2 md:hidden">
-                    <p class="font-bold">Prezime:</p>
-                    <p>{{member.lastName | titlecase}}</p>
-                </div>
-
-                <div class="px-2 hidden md:grid items-center col-span-2">{{member.userName}}</div>
-                <div class="px-2 grid grid-cols-2 md:hidden">
-                    <p class="font-bold">User Name:</p>
-                    <p class="break-words">{{member.userName}}</p>
-                </div>
-
-                <div class="px-2 hidden md:grid items-center ">{{member.dateCreated | date}}</div>
-                <div class="px-2 grid grid-cols-2 md:hidden">
-                    <p class="font-bold">Datum kreiranja</p>
-                    <p>{{member.dateCreated | date}}</p>
-                </div>
-
-                <div class="px-2 hidden md:flex gap-1 items-center">
-                    <span *ngFor="let role of member.roles; let i = index">
-                        {{role}}<span *ngIf="i+1 < member.roles.length">, </span>
-                    </span>
-                </div>
-                <div class="px-2 grid grid-cols-2 md:hidden">
-                    <p class="font-bold">Roles</p>
-                    <div class="block">
-                        <span *ngFor="let role of member.roles; let i = index">
-                            {{role}}<span *ngIf="i+1 < member.roles.length">, </span>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="px-1 py-1 w-[50%] mx-auto hidden md:grid items-center ">
-                    <button 
-                        *ngIf="!member.isLocked" 
-                        class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
-                        (click)="onLockMember(member.id)">
-                        Lock
-                    </button>
-                    <button 
-                        *ngIf="member.isLocked" 
-                        class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
-                        (click)="onUnlockMember(member.id)">
-                        Unlock
-                    </button>
-                </div>
-                <div class="px-2 grid grid-cols-2 md:hidden">
-                    <p class="font-bold">Lock/Unlock</p>
-                    <button 
-                        *ngIf="!member.isLocked" 
-                        class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
-                        (click)="onLockMember(member.id)">
-                        Lock
-                    </button>
-                    <button 
-                        *ngIf="member.isLocked" 
-                        class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
-                        (click)="onUnlockMember(member.id)">
-                        Unlock
-                    </button>
-                </div>
-
-                <div class="w-full px-2 py-1 flex gap-1">
-                    <button 
-                        class="w-full rounded-lg text-white flex justify-center items-center bg-[#4BB543] contact-list-btn" 
-                        routerLink="/admin/edit-user/{{member.id}}">
-                        Edit
-                    </button>
-                    <button (click)="onDeleteUser(deleteUser, member.id)" class="w-full rounded-lg text-white flex justify-center items-center bg-red-600 contact-list-btn">Delete</button>
-                </div>
-            </div>
-            <!-- <p *ngIf="noResultsMessage">{{ noResultsMessage }}</p> -->
+        <div class="flex flex-col justify-center items-center rounded-2xl">
+            <table class="w-full md:bg-transparent/20 md:shadow md:shadow-black rounded-xl text-[#fff8]">
+                <thead class="text-[#BB4430] rounded-2xl md:border-b-2 md:border-b-[#BB4430]">
+                  <tr class="">
+                    <th class="th-custom2 p-3 text-left ">Br.</th>
+                    <th class="th-custom2 px-0 py-1 text-left ">Ime</th>
+                    <th class="th-custom2 px-0 py-1 text-left">Prezime</th>
+                    <th class="th-custom2 px-0 py-1 text-center">Username</th>
+                    <th class="th-custom2 px-0 py-1 text-left">Datum kreiranja</th>
+                    <th class="th-custom2 px-0 py-1 text-center">Uloge</th>
+                    <th class="th-custom2 px-0 py-1 text-center"></th>
+                    <th class="th-custom2 px-0 py-1 text-center"></th>
+                    <th class="th-custom2 px-0 py-1 text-center"></th>
+                  </tr>
+                </thead>
+                <tbody class=" ">
+                  <div *ngIf="membersLength == 0"><p class="text-center text-[#BB4430] font-bold p-2 col-span-8">Nema rezultata za zadatu pretragu</p></div>
+                  <ng-container
+                    *ngFor="let member of members | async; let i = index">
+                    <tr class="group  md:hover:bg-[#BB4430]/10 shadow shadow-black ">
+                        <td data-cell="br" class="td-custom2 md:text-[#BB4430] font-bold p-3 text-start md:text-center w-9">{{ (adminService.memberQuearyParamsSubject.value.pageNumber - 1) * adminService.memberQuearyParamsSubject.value.pageSize + i + 1 }}.</td>
+                        <td data-cell="ime" class="td-custom2 px-1 py-1 text-left">{{ member.firstName| titlecase }}</td>
+                        <td data-cell="prezime" class="td-custom2 px-1 py-1 text-left ">{{ member.lastName | titlecase }}</td>
+                        <td data-cell="username" class="td-custom2 px-1 py-1 break-words">{{ member.userName }}</td>
+                        <td data-cell="date created" class="td-custom2 px-1 py-1 items-center">{{ member.dateCreated | date }}</td>
+                        <td data-cell="uloge" class="td-custom2 px-1 py-1 ">
+                            <div class="block">
+                                <span *ngFor="let role of member.roles; let i = index">
+                                    {{role}}<span *ngIf="i+1 < member.roles.length">, </span>
+                                </span>
+                            </div>
+                        </td>
+                        <td data-cell="lock / unlock" class="td-custom2 px-1 py-1 items-center">
+                            <button 
+                                *ngIf="!member.isLocked" 
+                                class="flex py-1 bg-blue-600 text-white font-bold rounded-md justify-center items-center md:text-blue-600 md:bg-transparent md:py-0"
+                                (click)="onLockMember(member.id)">
+                                Lock
+                            </button>
+                            <button 
+                                *ngIf="member.isLocked" 
+                                class="flex py-1 bg-yellow-500 text-white font-bold rounded-md justify-center items-center md:text-yellow-600 md:bg-transparent md:py-0"
+                                (click)="onUnlockMember(member.id)">
+                                Unlock
+                            </button>
+                        </td>
+                        <td data-cell="edit" class="td-custom2 px-1 py-1">
+                            <button routerLink="/admin/edit-user/{{member.id}}" class="flex py-1 bg-green-600 text-white font-bold rounded-md justify-center items-center md:text-green-600 md:bg-transparent md:py-0">Edit</button>
+                          </td>
+                        <td data-cell="delete" class="td-custom2 px-1 py-1">
+                          <button (click)="onDeleteUser(deleteUser, member.id)" class="flex py-1 bg-red-600 text-white font-bold rounded-md justify-center items-center md:text-red-600 md:bg-transparent md:py-0">Delete</button>
+                        </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
         </div>
+       
     </div>
     <div>
         <app-admin-user-paganation></app-admin-user-paganation>
@@ -118,3 +83,100 @@
         </div>
     </div>
 </dialog>
+
+
+
+
+<!-- <div class="grid grid-rows-[auto,1fr] ">
+    <div class="hidden md:grid md:grid-cols-8  text-white/90  bg-slate-800 p-2 rounded-lg font-bold ">
+        <div>Ime</div>
+        <div>Prezime</div>
+        <div class="col-span-2">Username</div>
+        <div>Datum kreiranja</div>
+        <div>Uloge</div>
+        <div class="text-center">Lock/Unlock</div>
+        <div></div>
+    </div>
+    <div *ngIf="membersLength == 0"><p class="text-center text-black font-bold p-2 col-span-8">Nema rezultata za zadatu pretragu</p></div>
+    <div class="grid shadow shadow-black bg-transparent/20 p-2 text-[#fff8] md:border-none md:grid md:grid-cols-8  rounded-lg" 
+        *ngFor="let member of members | async ; let i = index">
+
+        <div class="px-2 hidden md:grid items-center ">{{member.firstName | titlecase}}</div>
+        <div class="px-2 grid grid-cols-2 md:hidden bg-slate-900 rounded-t-md">
+            <p class="font-bold text-white">Ime:</p>
+            <p class="text-white">{{member.firstName | titlecase}}</p>
+        </div>
+
+        <div class="px-2 hidden md:grid items-center">{{member.lastName | titlecase}}</div>
+        <div class="px-2 grid grid-cols-2 md:hidden">
+            <p class="font-bold">Prezime:</p>
+            <p>{{member.lastName | titlecase}}</p>
+        </div>
+
+        <div class="px-2 hidden md:grid items-center col-span-2">{{member.userName}}</div>
+        <div class="px-2 grid grid-cols-2 md:hidden">
+            <p class="font-bold">User Name:</p>
+            <p class="break-words">{{member.userName}}</p>
+        </div>
+
+        <div class="px-2 hidden md:grid items-center ">{{member.dateCreated | date}}</div>
+        <div class="px-2 grid grid-cols-2 md:hidden">
+            <p class="font-bold">Datum kreiranja</p>
+            <p>{{member.dateCreated | date}}</p>
+        </div>
+
+        <div class="px-2 hidden md:flex gap-1 items-center">
+            <span *ngFor="let role of member.roles; let i = index">
+                {{role}}<span *ngIf="i+1 < member.roles.length">, </span>
+            </span>
+        </div>
+        <div class="px-2 grid grid-cols-2 md:hidden">
+            <p class="font-bold">Roles</p>
+            <div class="block">
+                <span *ngFor="let role of member.roles; let i = index">
+                    {{role}}<span *ngIf="i+1 < member.roles.length">, </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="px-1 py-1 w-[50%] mx-auto hidden md:grid items-center ">
+            <button 
+                *ngIf="!member.isLocked" 
+                class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                (click)="onLockMember(member.id)">
+                Lock
+            </button>
+            <button 
+                *ngIf="member.isLocked" 
+                class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                (click)="onUnlockMember(member.id)">
+                Unlock
+            </button>
+        </div>
+        <div class="px-2 grid grid-cols-2 md:hidden">
+            <p class="font-bold">Lock/Unlock</p>
+            <button 
+                *ngIf="!member.isLocked" 
+                class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                (click)="onLockMember(member.id)">
+                Lock
+            </button>
+            <button 
+                *ngIf="member.isLocked" 
+                class="w-full rounded-lg text-white flex justify-center items-center bg-black/70 contact-list-btn"
+                (click)="onUnlockMember(member.id)">
+                Unlock
+            </button>
+        </div>
+
+        <div class="w-full px-2 py-1 flex gap-1">
+            <button 
+                class="w-full rounded-lg text-white flex justify-center items-center bg-[#4BB543] contact-list-btn" 
+                routerLink="/admin/edit-user/{{member.id}}">
+                Edit
+            </button>
+            <button (click)="onDeleteUser(deleteUser, member.id)" class="w-full rounded-lg text-white flex justify-center items-center bg-red-600 contact-list-btn">Delete</button>
+        </div>
+    </div>
+    <p *ngIf="noResultsMessage">{{ noResultsMessage }}</p>
+</div> -->

@@ -5,7 +5,7 @@
             id="memberSelect"
             #memberSelect
             (change)="onGetMemberSelect(memberSelect.value)"
-            class="bg-transparent outline-none border-transparent/60 border custom-input  rounded-md p-1 placeholder:text-transparent/60  placeholder:p-1 w-full">
+            class="bg-transparent/20 text-[#fff8] p-2 outline-none shadow shadow-black rounded-md placeholder:text-[#fff8]  placeholder:p-1 w-full">
             <option *ngFor="let searchMember of selectValues" value="{{searchMember.searchValue}}">{{searchMember.searchTerm}}</option>
         </select>
     </div>
@@ -14,7 +14,7 @@
     <input 
         type="text" 
         placeholder="Search by {{placeHolderValue}}"
-        class="bg-transparent outline-none border-transparent/60 border custom-input  rounded-md p-1 placeholder:text-transparent/60  placeholder:p-1 w-full"
+        class="bg-transparent/20 text-[#fff8] p-2 w-full outline-none shadow shadow-black rounded-md placeholder:text-[#fff8]  placeholder:p-1"
         #searchMemberInput
         (input)="onGetSearchMemberInput(searchMemberInput.value)">
     </div>

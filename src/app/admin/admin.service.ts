@@ -20,7 +20,7 @@ export class AdminService {
     sortBy: 'NameOfCompany',
     isAscending: true,
     pageNumber: 1,
-    pageSize: 5
+    pageSize: 10
   }
 
   memberQuearyParams: CustomQueryParamas = {
@@ -29,7 +29,7 @@ export class AdminService {
     sortBy: 'firstname',
     isAscending: true,
     pageNumber: 1,
-    pageSize: 5
+    pageSize: 10
   }
 
   contactQuearyParamsSubject: BehaviorSubject<CustomQueryParamas> = new BehaviorSubject<CustomQueryParamas>(this.contactsQuearyParams);

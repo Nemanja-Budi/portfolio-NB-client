@@ -1,34 +1,34 @@
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-6">
   <div>
     <app-admin-contact-search></app-admin-contact-search>
   </div>
   <div class="flex flex-col justify-center items-center rounded-2xl">
-      <table class="min-w-full  bg-transparent/60 border-[#2272ff] border-2 rounded-xl ">
-          <thead class="text-[#fff8] rounded-2xl border-b-2 border-[#2272ff] ">
+      <table class="w-full md:bg-transparent/20 md:shadow md:shadow-black rounded-xl text-[#fff8]">
+          <thead class="text-[#BB4430] rounded-2xl md:border-b-2 md:border-b-[#BB4430]">
             <tr class="">
-              <th class="th-custom2 px-4 py-1 text-left">Br.</th>
+              <th class="th-custom2 p-3 text-left ">Br.</th>
               <th class="th-custom2 px-0 py-1 text-left ">Ime <span (click)="onChangeSortDirection()" class="font-extrabold cursor-pointer">{{isAscending ? '↓' : '↑'}}</span></th>
               <th class="th-custom2 px-0 py-1 text-left">Email</th>
-              <th class="th-custom2 px-0 py-1 text-start">Poruka</th>
+              <th class="th-custom2 px-0 py-1 text-center">Poruka</th>
               <th *appUserHasRole="['Admin']" class="th-custom2 px-0 py-1 text-start"></th>
             </tr>
           </thead>
-          <tbody class="text-[#2272ff]  rounded-xl ">
+          <tbody class=" ">
             <td *ngIf="contactsLength == 0" colspan="5"><p class="text-center text-red-500 p-2">Nema rezultata za zadatu pretragu</p></td>
             <ng-container
               *ngFor="let contact of contacts | async; let i = index">
-              <tr class="group  hover:bg-transparent/70">
-                <td data-cell="br" class="td-custom2 text-[#2272ff] px-2  py-1 ">{{ (adminService.contactQuearyParamsSubject.value.pageNumber - 1) * adminService.contactQuearyParamsSubject.value.pageSize + i + 1 }}</td>
-                <td data-cell="ime" class="td-custom2 px-1 py-1 text-left">{{ contact.nameOfCompany }}</td>
+              <tr class="group  md:hover:bg-[#BB4430]/10 shadow shadow-black ">
+                <td data-cell="br" class="td-custom2 text-[#BB4430] font-bold p-3 text-start md:text-center w-9">{{ (adminService.contactQuearyParamsSubject.value.pageNumber - 1) * adminService.contactQuearyParamsSubject.value.pageSize + i + 1 }}.</td>
+                <td data-cell="ime" class="td-custom2 px-1 py-1 text-left">{{ contact.nameOfCompany | titlecase }}</td>
                 <td data-cell="email" class="td-custom2 px-1 py-1 text-left ">{{ contact.email}}</td>
-                <td data-cell="poruka" class="td-custom2 px-1 py-1 ">{{ contact.message}}</td>
+                <td data-cell="poruka" class="td-custom2 px-1 py-1 ">{{ contact.message | titlecase }}</td>
                 <td 
                   *appUserHasRole="['Admin']" 
                   data-cell="delete" 
                   class="td-custom2 px-1 py-1">
                     <button 
                       (click)="onDeleteContact(deleteContact, contact.id)"
-                      class="flex">
+                      class="flex text-[#BB4430]">
                       Delete
                     </button>
                   </td>

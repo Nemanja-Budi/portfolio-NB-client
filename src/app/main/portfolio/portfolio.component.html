@@ -1,58 +1,56 @@
-<div class="grid grid-rows-[auto,1fr] h-full gap-5 p-5 w-full md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[75%] mx-auto">
-    <div class="flex flex-col gap-5">
-        <div class="bg-transparent/60 text-[#2272ff] border-[#2272ff] border-2 rounded-md p-3 ">
-            <p class="hidden md:block">
-                {{aboutProject}}
-             </p>
-             <div class="block md:hidden">
-                 <p *ngIf="aboutProject.length < 230">{{aboutProject}}</p>
-                 <p *ngIf="aboutProject.length > 230 && !isShowen">
-                     {{aboutProject.slice(0,230)}}...
-                     <button class="text-[#fff8]" (click)="onChangeShow()"> (Show more) </button>
-                 </p>
-                 <p *ngIf="aboutProject.length > 230 && isShowen">
-                     {{aboutProject}}
-                     <button class="text-[#fff8]" (click)="onChangeShow()"> (Show less) </button>
-                 </p>
-             </div>
+<div class="flex flex-col h-full gap-5 md:gap-10 p-5 md:p-11">
+    <div class="bg-transparent/20 text-[#fff8] shadow shadow-black rounded-md p-3 w-full md:w-[50%] lg:w-[40%] xl:w-[35%] 2xl:w-[30%]  mx-auto flex flex-col gap-1">
+        <div class="flex flex-col gap-1">
+            <h4 class="text-xl text-[#BB4430] text-center">Project Information</h4>
+            <p class="flex gap-3"><span class="text-[#fff8]">Link: </span> <a class="text-[#2272ff]" href="https://firma-bed54.web.app/auth" target="_blank">https://firma-bed54.web.app/auth</a></p>
         </div>
-        <div class="bg-transparent/60 text-[#2272ff] border-[#2272ff] border-2 rounded-md p-3 w-full md:w-[50%] lg:w-[40%] xl:w-[35%] 2xl:w-[30%]  mx-auto flex flex-col gap-1">
-            <div class="flex flex-col gap-1">
-                <h4 class="text-xl text-[#fff8] text-center">Project Information</h4>
-                <p class="flex gap-3"><span class="text-[#fff8]">Link: </span> <a href="https://firma-bed54.web.app/auth" target="_blank">https://firma-bed54.web.app/auth</a></p>
-            </div>
-            <div class="flex flex-col gap-1">
-                <h4 class="text-xl text-[#fff8] text-center">Login Credentials</h4>
-                <div class="flex justify-between">
-                    <p><span class="text-[#fff8]">Email:</span> test@test.com</p>
-                    <p><span class="text-[#fff8]">Password:</span> 123456</p>
-                </div>
+        <div class="flex flex-col gap-1">
+            <h4 class="text-xl text-[#BB4430] text-center">Login Credentials</h4>
+            <div class="flex justify-between">
+                <p>Email: <span class="text-[#2272ff]">test@test.com</span> </p>
+                <p>Password: <span class="text-[#2272ff]">123456</span></p>
             </div>
         </div>
     </div>
-    <div class="grid md:flex md:flex-col gap-5 z-0">
-        <div class="grid md:grid md:grid-cols-2 gap-5">
-            <video controls class="w-full h-full border-[#2272ff] border-2 rounded-md">
+    <div class="grid md:flex md:flex-col gap-5 md:gap-10 z-0">
+        <div class="grid md:grid md:grid-cols-2 gap-5 md:gap-7">
+            <video controls class="w-full h-full shadow shadow-black rounded-md">
                 <source class="" src="assets/videos/2024-04-24 10-13-07.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video controls class="w-full h-full border-[#2272ff] border-2 rounded-md">
+            <video controls class="w-full h-full shadow shadow-black rounded-md">
                 <source src="assets/videos/2024-04-24 10-15-57.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div *ngIf="isOpen" class="grid md:grid md:grid-cols-2 gap-5">
-            <video controls class="w-full h-full border-[#2272ff] border-2 rounded-md">
+            <video controls class="w-full h-full shadow shadow-black rounded-md">
                 <source src="assets/videos/2024-04-24 10-36-36.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video controls class="w-full h-full border-[#2272ff] border-2 rounded-md">
+            <video controls class="w-full h-full shadow shadow-black rounded-md">
                 <source src="assets/videos/2024-04-24 10-54-33.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="flex justify-center">
-            <button class="download-cv-button" (click)="onShowMore()">{{isOpen == true ? 'Show less' : 'Show more'}}</button>
+            <button class="bg-transparent/20 shadow shadow-black text-[#fff8] px-5 py-3 rounded-md " (click)="onShowMore()">{{isOpen == true ? 'Show less' : 'Show more'}}</button>
         </div>
+    </div>
+    <div class="bg-transparent/20 text-[#fff8] shadow shadow-black rounded-md p-3">
+        <p class="hidden md:block">
+            {{aboutProject}}
+         </p>
+         <div class="block md:hidden">
+             <p *ngIf="aboutProject.length < 230">{{aboutProject}}</p>
+             <p *ngIf="aboutProject.length > 230 && !isShowen">
+                 {{aboutProject.slice(0,230)}}...
+                 <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show more) </button>
+             </p>
+             <p *ngIf="aboutProject.length > 230 && isShowen">
+                 {{aboutProject}}
+                 <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show less) </button>
+             </p>
+         </div>
     </div>
 </div>

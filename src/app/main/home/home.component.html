@@ -1,24 +1,27 @@
-<div class="grid md:grid md:grid-cols-[1fr,0.7fr] md:grid-rows-1 h-full justify-center items-center p-10 md:p-0 gap-10 w-full md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[75%] mx-auto">
-    <div class="flex flex-col justify-center items-center gap-6 animate__animated animate__zoomInDown  animate__slow ">
-        <div class="flex flex-col md:justify-end md:items-end font-extrabold text-[#fff8]  ">
-            <p class="p-pozdrav">Hi!</p>
+<div class="grid md:grid md:grid-cols-[1fr,0.7fr] md:grid-rows-1 h-full justify-center items-center p-5 md:p-10 gap-5 md:gap-10">
+    <div class="flex flex-col justify-center items-center md:items-end gap-5 md:gap-16">
+        <div class="flex flex-col md:justify-end md:items-end  text-[#EFE6DD] shadow shadow-black p-4 rounded-xl bg-transparent/5">
+            <p class="p-pozdrav ">Hi!</p>
             <p class="p-moje">My name is</p>
-            <p class="p-ime">Nemanja Budimirovic</p>
+            <p class="p-ime text-[#BB4430] font-extrabold animate-text">Nemanja Budimirovic</p>
         </div>  
-        <div class="flex flex-col justify-center items-center gap-6">
+        <div class="flex flex-col justify-center items-center gap-5 md:gap-10">
             <div
-                class="bg-transparent/60 text-[#2272ff]   border-[#2272ff] border-2 shadow shadow-[#2272ff]  p-4 md:px-10 rounded-lg flex-col justify-center items-center gap-2 w-fit custom-card ">
-                I am focused on advancing my career as a Web Developer, with a strong desire for continuous improvement. I am working on enhancing my technical skills to deliver efficient and innovative solutions. Additionally, I am committed to researching the latest technologies and trends in web development to constantly progress and refine my skills
+                class="bg-transparent/5 shadow shadow-black  text-[#EFE6DD]  p-4 rounded-2xl flex-col justify-center items-center gap-2 w-fit custom-card ">
+                {{homeAboutMe}}
             </div>
             <button 
                 (click)="onDownloadCV()"
                 type="submit"
-                class="w-fit download-cv-button bg-transparent/60 outline-none text-white font-bold py-2 px-4 rounded mt-4 justify-center items-center">
+                class="w-fit bg-transparent/5  border border-[#BB4430] shadow shadow-black text-[#EFE6DD]  outline-none font-bold py-3 px-6 rounded justify-center items-center">
                 Download CV
             </button>
         </div>
     </div>
-    <div class="flex items-center w-full justify-center animate__animated animate__fadeInLeft animate__slow  ">
-        <img src="assets/images/me3final.png" class="mb-2 md:mb-0 max-h-[70dvh] bg-transparent/60 shadow-xl rounded-3xl shadow-black" alt="Myimg">
+    <div class="flex items-center w-full justify-center">
+        <img 
+            src="assets/images/me3final.png" 
+            class="mb-2 md:mb-0 max-h-[70dvh] bg-transparent/5 shadow rounded-3xl shadow-black" 
+            alt="Myimg">
     </div>
 </div>
