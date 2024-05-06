@@ -1,27 +1,38 @@
-<div class="grid md:grid md:grid-cols-[1fr,0.7fr] md:grid-rows-1 h-full justify-center items-center p-5 md:p-10 gap-5 md:gap-10">
-    <div class="flex flex-col justify-center items-center md:items-end gap-5 md:gap-16">
-        <div class="flex flex-col md:justify-end md:items-end  text-[#EFE6DD] shadow shadow-black p-4 rounded-xl bg-transparent/5">
+<div class="flex flex-col-reverse md:grid md:grid-cols-[1fr,0.8fr] md:grid-rows-1 h-fit md:h-full justify-center items-center p-5 xl:p-10 gap-5 xl:gap-10">
+    <div class="flex flex-col   gap-8 md:gap-16 ">
+
+        <div class="flex flex-col  text-[#EFE6DD] w-fit ">
             <p class="p-pozdrav ">Hi!</p>
             <p class="p-moje">My name is</p>
-            <p class="p-ime text-[#BB4430] font-extrabold animate-text">Nemanja Budimirovic</p>
-        </div>  
-        <div class="flex flex-col justify-center items-center gap-5 md:gap-10">
-            <div
-                class="bg-transparent/5 shadow shadow-black  text-[#EFE6DD]  p-4 rounded-2xl flex-col justify-center items-center gap-2 w-fit custom-card ">
-                {{homeAboutMe}}
-            </div>
-            <button 
-                (click)="onDownloadCV()"
-                type="submit"
-                class="w-fit bg-transparent/5  border border-[#BB4430] shadow shadow-black text-[#EFE6DD]  outline-none font-bold py-3 px-6 rounded justify-center items-center">
-                Download CV
-            </button>
+            <p class="p-ime w-fit text-[#ffffff09] font-extrabold typing-animation ">Nemanja Budimirovic</p>
         </div>
+        <div class="text-[#EFE6DD] font-bold  flex-col justify-center items-center gap-2 w-fit custom-card">
+            I am focused on advancing my career as a <span class="text-[#BB4430] text-lg md:text-xl">Web Developer</span>{{homeAboutMe}}
+        </div>
+
+        <div class="flex items-center gap-8 justify-between md:flex-col md:items-start md:gap-16">
+            <div>
+                <button 
+                    (click)="onDownloadCV()"
+                    type="submit"
+                    class="self-start w-fit  bg-[#ffffff09]   text-[#ffffff09]/30   rounded  outline-none font-extrabold px-4 py-2.5  md:py-3 md:px-6  justify-center items-center hover:bg-[#BB4430] hover:text-[#EFE6DD] hover:shadow-2xl hover:shadow-black transition duration-1000 ">
+                    Download CV
+                </button>
+            </div>
+            <div>
+                <app-contact-social-media></app-contact-social-media>
+            </div>
+        </div>
+
     </div>
-    <div class="flex items-center w-full justify-center">
-        <img 
-            src="assets/images/me3final.png" 
-            class="mb-2 md:mb-0 max-h-[70dvh] bg-transparent/5 shadow rounded-3xl shadow-black" 
-            alt="Myimg">
+    <div class="flex justify-center items-center rounded-xl md:h-full  w-[70%] mx-auto md:w-full h-fit">
+        <div  routerLink="/main/about" class="md:relative group hover:cursor-pointer  ">
+            <img src="assets/images/me3final.png" 
+                 class="mb-2 md:mb-0 h-full   bg-[#ffffff09]    rounded-xl transition duration-300 ease-in-out  "
+                 alt="Myimg">
+            <div class="md:absolute hidden  inset-0 md:flex justify-center items-center bg-[#BB4430] hover:rounded-xl bg-opacity-50 opacity-0 hover:opacity-100 transition duration-1000 ease-in-out  ">
+                <p class="text-black  text-center text-2xl absolute bottom-8 "><a>More about me</a></p>
+            </div>
+        </div>
     </div>
 </div>

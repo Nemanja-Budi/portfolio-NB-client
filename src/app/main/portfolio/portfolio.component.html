@@ -1,43 +1,39 @@
-<div class="flex flex-col h-full gap-5 md:gap-10 p-5 md:p-11">
-    <div class="bg-transparent/20 text-[#fff8] shadow shadow-black rounded-md p-3 w-full md:w-[50%] lg:w-[40%] xl:w-[35%] 2xl:w-[30%]  mx-auto flex flex-col gap-1">
-        <div class="flex flex-col gap-1">
-            <h4 class="text-xl text-[#BB4430] text-center">Project Information</h4>
-            <p class="flex gap-3"><span class="text-[#fff8]">Link: </span> <a class="text-[#2272ff]" href="https://firma-bed54.web.app/auth" target="_blank">https://firma-bed54.web.app/auth</a></p>
-        </div>
-        <div class="flex flex-col gap-1">
-            <h4 class="text-xl text-[#BB4430] text-center">Login Credentials</h4>
-            <div class="flex justify-between">
-                <p>Email: <span class="text-[#2272ff]">test@test.com</span> </p>
-                <p>Password: <span class="text-[#2272ff]">123456</span></p>
-            </div>
-        </div>
-    </div>
-    <div class="grid md:flex md:flex-col gap-5 md:gap-10 z-0">
-        <div class="grid md:grid md:grid-cols-2 gap-5 md:gap-7">
-            <video controls class="w-full h-full shadow shadow-black rounded-md">
-                <source class="" src="assets/videos/2024-04-24 10-13-07.mkv" type="video/mp4">
+<div class="flex flex-col justify-between h-full gap-5 md:gap-7 p-5 ">
+    <div class="grid md:grid md:grid-cols-4 md:grid-rows-2 gap-7">
+        <div class="text-[#BB4430] md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 shadow-about-me  p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-2 ">
+            
+            <p class="text-center">Login and All products page</p>
+            
+            <video controls class="">
+                <source class="z-0" src="assets/videos/2024-04-24 10-13-07.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video controls class="w-full h-full shadow shadow-black rounded-md">
+
+        </div>
+        <div class="md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 text-[#BB4430]   hover:text-[#EFE6DD] shadow-about-me p-3 rounded-md row-span-2 grid grid-rows-2">
+            <p class=" text-center">Warehouse page for browsing all products</p>
+            <video controls class=" z-4 rounded-md">
                 <source src="assets/videos/2024-04-24 10-15-57.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <div *ngIf="isOpen" class="grid md:grid md:grid-cols-2 gap-5">
-            <video controls class="w-full h-full shadow shadow-black rounded-md">
+        <div class="text-[#BB4430] md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 shadow-about-me p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-2 ">
+            <p class="   text-center">Admin page with CRUD operations</p>
+            <video controls class="rounded-md">
                 <source src="assets/videos/2024-04-24 10-36-36.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video controls class="w-full h-full shadow shadow-black rounded-md">
+        </div>
+        <div class="text-[#EFE6DD] md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000  shadow-about-me p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-2 ">
+            <p class="text-center">Calculations page with updating warehouse inventory</p>
+
+            <video controls class="rounded-md">
                 <source src="assets/videos/2024-04-24 10-54-33.mkv" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <div class="flex justify-center">
-            <button class="bg-transparent/20 shadow shadow-black text-[#fff8] px-5 py-3 rounded-md " (click)="onShowMore()">{{isOpen == true ? 'Show less' : 'Show more'}}</button>
-        </div>
     </div>
-    <div class="bg-transparent/20 text-[#fff8] shadow shadow-black rounded-md p-3">
+    <div class="text-[#EFE6DD] ">
         <p class="hidden md:block">
             {{aboutProject}}
          </p>
@@ -53,4 +49,30 @@
              </p>
          </div>
     </div>
+    <div class=" text-[#fff8] grid md:grid md:grid-cols-2  gap-7">
+        <details class="md:hidden block rounded-md border border-[#BB4430] h-fit px-3 hover:cursor-pointer">
+            <summary class="text-xl text-[#BB4430] text-center">Project Information</summary>
+            <p class="flex gap-3"><span class="text-[#fff8]">Link: </span> <a class="text-[#2272ff]" href="https://firma-bed54.web.app/auth" target="_blank">https://firma-bed54.web.app/auth</a></p>
+        </details>
+        <details class="md:hidden block rounded-md border border-[#BB4430] h-fit px-3 hover:cursor-pointer">
+            <summary class="text-xl text-[#BB4430] text-center">Login Credentials</summary>
+            <div class="flex justify-between">
+                <p>Email: <span class="text-[#2272ff]">test@test.com</span> </p>
+                <p>Password: <span class="text-[#2272ff]">123456</span></p>
+            </div>
+        </details>
+        <div class="hidden md:block rounded-md border border-[#BB4430] h-fit px-3">
+            <h3 class="text-xl text-[#BB4430] text-center">Project Information</h3>
+            <p class="flex gap-3"><span class="text-[#fff8]">Link: </span> <a class="text-[#2272ff]" href="https://firma-bed54.web.app/auth" target="_blank">https://firma-bed54.web.app/auth</a></p>
+        </div>
+        <div class="rounded-md border hidden md:block border-[#BB4430] h-fit px-3">
+            <h3 class="text-xl text-[#BB4430] text-center">Login Credentials</h3>
+            <div class="flex justify-between">
+                <p>Email: <span class="text-[#2272ff]">test@test.com</span> </p>
+                <p>Password: <span class="text-[#2272ff]">123456</span></p>
+            </div>
+        </div>
+    </div>
+
+
 </div>

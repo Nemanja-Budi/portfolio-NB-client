@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  homeAboutMe: string = `I am focused on advancing my career as a Web Developer, with a strong desire for continuous improvement. I am working on enhancing my technical skills to deliver efficient and innovative solutions. Additionally, I am committed to researching the latest technologies and trends in web development to constantly progress and refine my skills.`;
+  mainService: MainService = inject(MainService);
+  homeAboutMe: string = `, with a strong desire for continuous improvement. I am working on enhancing my technical skills to deliver efficient and innovative solutions.`;
 
   onDownloadCV(): void {
     const cvUrl = `https://drive.google.com/file/d/1OfuH35E_EHfBS3lXE5uX-7FHUhdkNFNx/view?usp=drive_link`;
     window.open(cvUrl, '_blank');
   }
+
+
 }

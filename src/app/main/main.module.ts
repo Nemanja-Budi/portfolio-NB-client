@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import { ContactSocialMediaComponent } from './contact/contact-social-media/contact-social-media.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ContactFormComponent } from './contact/contact-form/contact-form.compon
     PortfolioComponent,
     ContactComponent,
     ContactFormComponent,
+    ContactSocialMediaComponent,
   ],
   imports: [
     CommonModule,

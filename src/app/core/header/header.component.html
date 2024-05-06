@@ -1,18 +1,18 @@
-<header class="flex items-center bg-transparent/60 p-1 text-[#fff8] sticky">
+<header class="flex items-center p-1 text-[#fff8] sticky">
     <div routerLink="/main/home" class="cursor-pointer text-5xl font-bold text-[#fff8]">NB</div>
     <button [ngClass]="{'xMarkWhenIsOpen' : isOpen}" (click)="onToggleNavBar()" class="mobile-nav-toggle"><span class="sr-only">Menu</span></button>
     <nav class="mx-auto">
         <ul appDisableAnimationOnResize [ngClass]="{'openNavBar': isOpen}" class="primary-navigation flex gap-3 md:bg-transparent">
-            <li routerLinkActive="text-[#2272ff]"><a routerLink="/main/home">Home</a></li>
-            <li routerLinkActive="text-[#2272ff]"><a routerLink="/main/about">About</a></li>
-            <li routerLinkActive="text-[#2272ff]"><a routerLink="/main/portfolio">Portfolio</a></li>
-            <li routerLinkActive="text-[#2272ff]"><a routerLink="/main/contact">Contact</a></li>
-            <li routerLinkActive="text-[#2272ff]" *ngIf="(accountService.user$ | async)as user"><a routerLink="/admin">Admin</a></li>
+            <li routerLinkActive="text-[#BB4430]"><a routerLink="/main/home">Home</a></li>
+            <li routerLinkActive="text-[#BB4430]"><a routerLink="/main/about">About</a></li>
+            <li routerLinkActive="text-[#BB4430]"><a routerLink="/main/portfolio">Portfolio</a></li>
+            <li routerLinkActive="text-[#BB4430]"><a routerLink="/main/contact">Contact</a></li>
+            <li routerLinkActive="text-[#BB4430]" *ngIf="(accountService.user$ | async)as user"><a routerLink="/admin">Admin</a></li>
             <button class="md:hidden flex" *ngIf="(accountService.user$ | async)as user" (click)="onLogout()">Logout</button>
-            <li routerLinkActive="text-[#2272ff]" class="md:hidden block"><a *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a></li>
+            <li routerLinkActive="text-[#BB4430]" class="md:hidden block"><a *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a></li>
         </ul>
     </nav>
-    <li routerLinkActive="text-[#2272ff]" class="hidden md:block"><a *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a></li>
+    <li routerLinkActive="text-[#BB4430]" class="hidden md:block"><a *ngIf="(accountService.user$ | async) === null" routerLink="/account/login">Login</a></li>
     <button class="hidden md:flex md:justify-end md:items-end" *ngIf="(accountService.user$ | async)as user" (click)="onLogout()">Logout</button>
 </header>
 
