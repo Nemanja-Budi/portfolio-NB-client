@@ -1,53 +1,24 @@
 <div class="flex flex-col justify-between h-full gap-5 md:gap-7 p-5 ">
-    <div class="grid md:grid md:grid-cols-4 md:grid-rows-2 gap-7">
-        <div class="text-[#BB4430] md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 shadow-about-me  p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-2 ">
-            
-            <p class="text-center">Login and All products page</p>
-            
-            <video controls class="">
-                <source class="z-0" src="assets/videos/2024-04-24 10-13-07.mkv" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-        </div>
-        <div class="md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 text-[#BB4430]   hover:text-[#EFE6DD] shadow-about-me p-3 rounded-md row-span-2 grid grid-rows-2">
-            <p class=" text-center">Warehouse page for browsing all products</p>
-            <video controls class=" z-4 rounded-md">
-                <source src="assets/videos/2024-04-24 10-15-57.mkv" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="text-[#BB4430] md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 shadow-about-me p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-2 ">
-            <p class="   text-center">Admin page with CRUD operations</p>
-            <video controls class="rounded-md">
-                <source src="assets/videos/2024-04-24 10-36-36.mkv" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="text-[#EFE6DD] md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000  shadow-about-me p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-2 ">
-            <p class="text-center">Calculations page with updating warehouse inventory</p>
-
-            <video controls class="rounded-md">
-                <source src="assets/videos/2024-04-24 10-54-33.mkv" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+    <h2 class="text-center text-[#BB4430] text-4xl font-bold">About project</h2>
+    <div class="shadow shadow-black bg-transparent/60 p-7 rounded-md grid md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 lg:grid-rows-2 gap-7">
+        <figure *ngFor="let video of videoArray" class="text-[#fff8]  bg-[#BB4430]/20 md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 border border-[#BB4430]   p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-[auto,1fr] gap-5 lg:gap-0 lg:grid-rows-2 ">
+            <figcaption class="text-center">{{video.name}}</figcaption>
+            <img class="self-end" src="{{video.img_src}}" alt="{{video.name}}">
+        </figure>
     </div>
     <div class="text-[#EFE6DD] ">
-        <p class="hidden md:block">
-            {{aboutProject}}
-         </p>
-         <div class="block md:hidden">
-             <p *ngIf="aboutProject.length < 230">{{aboutProject}}</p>
-             <p *ngIf="aboutProject.length > 230 && !isShowen">
-                 {{aboutProject.slice(0,230)}}...
-                 <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show more) </button>
-             </p>
-             <p *ngIf="aboutProject.length > 230 && isShowen">
-                 {{aboutProject}}
-                 <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show less) </button>
-             </p>
-         </div>
+        <p class="hidden md:block">{{aboutProject}}</p>
+        <div class="block md:hidden">
+            <p *ngIf="aboutProject.length < 230">{{aboutProject}}</p>
+            <p *ngIf="aboutProject.length > 230 && !isShowen">
+                {{aboutProject.slice(0,230)}}...
+                <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show more) </button>
+            </p>
+            <p *ngIf="aboutProject.length > 230 && isShowen">
+                {{aboutProject}}
+                <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show less) </button>
+            </p>
+        </div>
     </div>
     <div class=" text-[#fff8] grid md:grid md:grid-cols-2  gap-7">
         <details class="md:hidden block rounded-md border border-[#BB4430] h-fit px-3 hover:cursor-pointer">
@@ -73,6 +44,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

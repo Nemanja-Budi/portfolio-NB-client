@@ -1,6 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { MainService } from '../main.service';
 
+export type CustomVideo = {
+  name: string;
+  img_src: string;
+}
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -10,11 +15,18 @@ export class PortfolioComponent {
 
   mainService: MainService = inject(MainService);
 
-  videoArray: string[] = [
-    'assets/videos/2024-04-24 10-13-07.mkv',
-    'assets/videos/2024-04-24 10-15-57.mkv',
-    'assets/videos/2024-04-24 10-36-36.mkv',
-    'assets/videos/2024-04-24 10-54-33.mkv'
+  // videoArray: string[] = [
+  //   'assets/videos/2024-04-24 10-13-07.mkv',
+  //   'assets/videos/2024-04-24 10-15-57.mkv',
+  //   'assets/videos/2024-04-24 10-36-36.mkv',
+  //   'assets/videos/2024-04-24 10-54-33.mkv'
+  // ];
+
+  videoArray: CustomVideo[] = [
+    { name: 'Login and All products page', img_src: 'assets/images/prva.png' },
+    { name: 'Warehouse page for browsing all products', img_src: 'assets/images/druga.png' },
+    { name: 'Admin page with CRUD operations', img_src: 'assets/images/treca.png' },
+    { name: 'Calculations page with updating warehouse inventory', img_src: 'assets/images/cetvrta.png' },
   ];
 
   isShowen: boolean = false;
