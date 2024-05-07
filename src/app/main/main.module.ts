@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { ContactSocialMediaComponent } from './contact/contact-social-media/contact-social-media.component';
+import { PortfolioVideoComponent } from './portfolio/portfolio-video/portfolio-video.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ContactSocialMediaComponent } from './contact/contact-social-media/cont
     ContactComponent,
     ContactFormComponent,
     ContactSocialMediaComponent,
+    PortfolioVideoComponent,
   ],
   imports: [
     CommonModule,

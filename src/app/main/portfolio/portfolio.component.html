@@ -1,7 +1,7 @@
 <div class="flex flex-col justify-between h-full gap-5 md:gap-7 p-5 ">
     <h2 class="text-center text-[#BB4430] text-4xl font-bold">About project</h2>
     <div class="shadow shadow-black bg-transparent/60 p-7 rounded-md grid md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 lg:grid-rows-2 gap-7">
-        <figure *ngFor="let video of videoArray" class="text-[#fff8]  bg-[#BB4430]/20 md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 border border-[#BB4430]   p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-[auto,1fr] gap-5 lg:gap-0 lg:grid-rows-2 ">
+        <figure *ngFor="let video of videoArray"  routerLink="/main/portfolio/video/{{video.id}}" class="hover:cursor-pointer text-[#fff8]  bg-[#BB4430]/20 md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000 border border-[#BB4430]   p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-[auto,1fr] gap-5 lg:gap-0 lg:grid-rows-2 ">
             <figcaption class="text-center">{{video.name}}</figcaption>
             <img class="self-end" src="{{video.img_src}}" alt="{{video.name}}">
         </figure>
