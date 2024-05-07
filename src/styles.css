@@ -207,7 +207,7 @@ body,
     .primary-navigation {
         position: fixed;
         inset: 0 0 0 30%;
-        z-index: 1000;
+        z-index: 100000000;
         background: steelblue;
         flex-direction: column;
         padding: min(30vh,10rem) 2rem;
@@ -226,7 +226,7 @@ body,
         aspect-ratio: 1;
         top: 0.2rem;
         right: 1rem;
-        z-index: 9999;
+        z-index: 999999999;
     }
   }
 

@@ -5,12 +5,12 @@
         <button class="flex items-center gap-2 w-fit px-3 py-2 text-xl rounded-md border border-[#BB4430] text-[#BB4430] hover:bg-[#BB4430] hover:text-[#EFE6DD] hover:shadow-2xl hover:shadow-black transition duration-1000" (click)="onGetKlik(video.id)">Next video<span class="flex justify-center items-center"><i class="fa-solid fa-arrow-right"></i></span></button>
     </div>
     <p class="text-[#EFE6DD] font-bold">{{video.video_detail}}</p>
-    <div class="w-full md:w-[73%] mx-auto">
-        <video *ngIf="video.id == 1" controls class="w-full h-full shadow shadow-black rounded-md">
+    <div class="w-full md:w-[70%] mx-auto isolate">
+        <video *ngIf="video.id == 1" controls class="w-full h-full shadow shadow-black rounded-md ">
             <source class="" src="assets/videos/2024-04-24 10-13-07.mkv" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <video *ngIf="video.id == 2" controls class="w-full h-full shadow shadow-black rounded-md">
+        <video *ngIf="video.id == 2" controls class="w-full h-full shadow shadow-black rounded-md ">
             <source class="" src="assets/videos/2024-04-24 10-15-57.mkv" type="video/mp4">
             Your browser does not support the video tag.
         </video>
