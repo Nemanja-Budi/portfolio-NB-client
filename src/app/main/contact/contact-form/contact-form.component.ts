@@ -15,7 +15,7 @@ export class ContactFormComponent {
   contactForm: FormGroup;
   submited: boolean = false;
   errorMessages: string[] = [];
-
+  name: string = '';
   mainService: MainService = inject(MainService);
   router: Router = inject(Router);
 
@@ -28,12 +28,26 @@ export class ContactFormComponent {
 
   }
 
-  onContact(): void {
+  onContact(sucessModal: HTMLDialogElement): void {
     if(!this.contactForm.valid) return;
     const newContact = new Contact(this.contactForm.value);
     this.mainService.createContact(newContact).subscribe({
-      next: (response) => console.log(response)
+      next: (response) => {
+        console.log(response);
+        sucessModal?.showModal();
+        this.name = response.nameOfCompany;
+        this.contactForm.reset();
+        setTimeout(() => {
+          sucessModal?.close();
+        }, 5000);
+      }
     });
     console.log(newContact);
   }
+
+  onCloseModal(sucessModal: HTMLDialogElement): void {
+    sucessModal?.close();
+  }
+
+  
 }

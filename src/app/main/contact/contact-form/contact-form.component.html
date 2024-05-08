@@ -1,5 +1,5 @@
 <div class="bg-transparent/20 rounded-md p-3 md:p-6 shadow shadow-black text-[#fff8]">
-    <form [formGroup]="contactForm" (ngSubmit)="onContact()" class="flex flex-col gap-4">
+    <form [formGroup]="contactForm" (ngSubmit)="onContact(sucessModal)" class="flex flex-col gap-4">
         <div class="flex flex-col gap-2">
             <label for="nameOfCompany">Name of Company</label>
             <input 
@@ -30,9 +30,20 @@
         <div class="flex justify-center items-center mt-2">
             <button 
                 class="bg-transparent/20 shadow shadow-black text-[#fff8] px-7 py-3 rounded-md " 
-                type="submit">
+                type="submit"
+                [disabled]="!contactForm.valid">
                 Submit
             </button>
         </div>
     </form>
 </div>
+
+<dialog #sucessModal class="modal">
+    <div class="flex flex-col gap-3">
+        <h2 class="text-center">{{name}} Uspesno ste prosledili poruku</h2>
+        <div class="flex justify-center items-center">
+            <button (click)="onCloseModal(sucessModal)" class="bg-red-600 text-white px-3 py-2 rounded-md">Close</button>
+        </div>
+    </div>
+</dialog>
+  
