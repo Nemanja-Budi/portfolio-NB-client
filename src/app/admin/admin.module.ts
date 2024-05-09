@@ -12,29 +12,30 @@ import { AccountModule } from '../account/account.module';
 import { AdminContactPaganationComponent } from './admin-contact-manager/admin-contact-paganation/admin-contact-paganation.component';
 import { AdminUserPaganationComponent } from './admin-user-manager/admin-user-paganation/admin-user-paganation.component';
 import { AdminShowItemsPerPageComponent } from './admin-show-items-per-page/admin-show-items-per-page.component';
+import { SharedModule } from "../shared/shared.module";
 
 
 
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    AdminUserManagerComponent,
-    AdminContactManagerComponent,
-    UserHasRoleDirective,
-    AdminContactSearchComponent,
-    AdminUserSearchComponent,
-    AdminEditMemberComponent,
-    AdminContactPaganationComponent,
-    AdminUserPaganationComponent,
-    AdminShowItemsPerPageComponent,
-
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    AccountModule
-  ],
-  exports: [UserHasRoleDirective]
+    declarations: [
+        AdminComponent,
+        AdminUserManagerComponent,
+        AdminContactManagerComponent,
+        UserHasRoleDirective,
+        AdminContactSearchComponent,
+        AdminUserSearchComponent,
+        AdminEditMemberComponent,
+        AdminContactPaganationComponent,
+        AdminUserPaganationComponent,
+        AdminShowItemsPerPageComponent,
+    ],
+    exports: [UserHasRoleDirective],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        AccountModule,
+        SharedModule
+    ]
 })
 export class AdminModule { }

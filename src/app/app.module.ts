@@ -14,6 +14,7 @@ import { DisableAnimationOnResizeDirective } from './shared/directives/disable-a
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { DisableAnimationOnResizeDirective } from './shared/directives/disable-a
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AdminModule
+    AdminModule,
   ],
   exports: [HttpClientModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
