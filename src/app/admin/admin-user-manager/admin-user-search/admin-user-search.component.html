@@ -5,11 +5,16 @@
             id="memberSelect"
             #memberSelect
             (change)="onGetMemberSelect(memberSelect.value)"
-            class="bg-transparent/20 text-[#fff8] p-2 outline-none shadow shadow-black rounded-md placeholder:text-[#fff8]  placeholder:p-1 w-full">
-            <option *ngFor="let searchMember of selectValues" value="{{searchMember.searchValue}}">{{searchMember.searchTerm}}</option>
+            class="bg-transparent/20 h-full text-[#fff8] p-2 outline-none shadow shadow-black rounded-md placeholder:text-[#fff8]  placeholder:p-1 w-full">
+            <option class="bg-white text-black" *ngFor="let searchMember of selectValues" value="{{searchMember.searchValue}}">{{searchMember.searchTerm}}</option>
         </select>
     </div>
-    <div><span (click)="onChangeSortDirection()" class="font-extrabold cursor-pointer text-2xl">{{isAscending ? '↓' : '↑'}}</span></div>
+    <div class="flex items-center text-[#fff8] h-full">
+        <span (click)="onChangeSortDirection()" class="cursor-pointer">
+            <i *ngIf="isAscending" class="fa-solid fa-down-long fa-2x"></i>
+            <i *ngIf="!isAscending" class="fa-solid fa-up-long fa-2x"></i>
+        </span>
+    </div>
     <div class="w-full">
     <input 
         type="text" 
