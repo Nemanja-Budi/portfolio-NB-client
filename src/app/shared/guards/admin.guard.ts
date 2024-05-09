@@ -22,26 +22,21 @@ export class AdminGuard implements CanActivate {
         if (user) {
           const decodedToken: any = jwtDecode(user.jwt);
           console.log('Decoded token:', decodedToken);
-          // Provera da li korisnik ima ulogu admina
           if (decodedToken && decodedToken.role && Array.isArray(decodedToken.role)) {
             const isAdmin = decodedToken.role.some((role:string) => role.toLowerCase() === 'admin');
             if (isAdmin) {
-              console.log('Admin authenticated.');
-              return true; // Dozvoli pristup ako korisnik ima ulogu admina
+              return true;
             } else {
-              console.log('Unauthorized access: not an admin.');
-              this.router.navigate(['/admin']); // Preusmeri korisnika na stranicu zabranjenog pristupa ako nema odgovarajuću ulogu
-              return false; // Zabrani pristup
+              this.router.navigate(['/admin']);
+              return false;
             }
           } else {
-            console.log('Unauthorized access: no role found.');
-            this.router.navigate(['/admin']); // Preusmeri korisnika na stranicu zabranjenog pristupa ako nema odgovarajuću ulogu
-            return false; // Zabrani pristup
+            this.router.navigate(['/admin']);
+            return false;
           }
         } else {
-          console.log('User not authenticated. Redirecting to login page.');
-          this.router.navigate(['/account/login']); // Preusmeri korisnika na stranicu za prijavu ako nije prijavljen
-          return false; // Zabrani pristup
+          this.router.navigate(['/account/login']);
+          return false; 
         }
       })
     );
