@@ -11,8 +11,8 @@
     </div>
     <div class="flex items-center text-[#fff8] h-full">
         <span (click)="onChangeSortDirection()" class="cursor-pointer">
-            <i *ngIf="isAscending" class="fa-solid fa-down-long fa-2x"></i>
-            <i *ngIf="!isAscending" class="fa-solid fa-up-long fa-2x"></i>
+            <i *ngIf="this.adminService.memberQuearyParamsSubject.value.isAscending" class="fa-solid fa-down-long fa-2x"></i>
+            <i *ngIf="!(this.adminService.memberQuearyParamsSubject.value.isAscending)" class="fa-solid fa-up-long fa-2x"></i>
         </span>
     </div>
     <div class="w-full">

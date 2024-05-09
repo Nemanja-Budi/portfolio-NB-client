@@ -21,7 +21,6 @@ export class AdminGuard implements CanActivate {
       map(user => {
         if (user) {
           const decodedToken: any = jwtDecode(user.jwt);
-          console.log('Decoded token:', decodedToken);
           if (decodedToken && decodedToken.role && Array.isArray(decodedToken.role)) {
             const isAdmin = decodedToken.role.some((role:string) => role.toLowerCase() === 'admin');
             if (isAdmin) {
