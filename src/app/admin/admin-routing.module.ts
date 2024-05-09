@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminUserManagerComponent } from './admin-user-manager/admin-user-manager.component';
-import { AdminContactManagerComponent } from './admin-contact-manager/admin-contact-manager.component';
 import { AdminComponent } from './admin.component';
 import { AdminEditMemberComponent } from './admin-user-manager/admin-edit-member/admin-edit-member.component';
+import { AdminGuard } from '../shared/guards/admin.guard';
 
 const routes: Routes = [
   { path: '', component: AdminComponent},
-  { path: 'user-manager', component: AdminUserManagerComponent },
-  { path: 'add-new-user', component: AdminEditMemberComponent },
-  { path: 'edit-user/:id', component: AdminEditMemberComponent },
+  { path: 'user-manager', component: AdminUserManagerComponent, canActivate: [AdminGuard] },
+  { path: 'add-new-user', component: AdminEditMemberComponent, canActivate: [AdminGuard]},
+  { path: 'edit-user/:id', component: AdminEditMemberComponent, canActivate: [AdminGuard]},
   // { path: 'contact-manager', component: AdminContactManagerComponent },
 ];
 
