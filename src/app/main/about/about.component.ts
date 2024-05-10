@@ -16,6 +16,11 @@ type CustomOtherCourses = {
   link: string;
 }
 
+type CustomEducation = {
+  name: string;
+  studyProgram: string;
+}
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -60,10 +65,20 @@ export class AboutComponent {
     { headline: 'freeCodeCamp', name: 'Responsive Web Design', link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design'},
   ];
 
+  educationArray: CustomEducation[] = [
+    { name: 'Srednja tehnička škola Nikola Tesla', studyProgram: 'Elektrotehničar računara 2011 - 2015' },
+    { name: 'Fakultet tehničkih nauka u Novom Sadu', studyProgram: 'Energetika elektronika i telekomunikacije 2015 -' },
+  ];
+
   aboutMeText: string = `The possibilities offered by web development inspire me, driving my active pursuit of a career in this dynamic field. I am dedicated to continuous improvement, expanding my skills to deliver innovative and efficient solutions.
     My commitment to advancing as a web developer is profound. Recognizing the demand for ongoing learning in the technology industry, I focus on acquiring the knowledge and experience essential for success in this dynamic environment.
     I relish the challenges inherent in web development, eagerly anticipating opportunities for growth and advancement. I am motivated by my aspiration to create intuitive, inspiring web applications that enhance user experiences and contribute to business success.
     My passion for programming fuels my visionary approach to web application development. I am dedicated to continuously improving my skills and actively seek opportunities to contribute to innovative projects and teams.`;
+
+  expirianceText: string = `I do not have professional experience as a web developer yet, 
+    but I am dedicated to learning and improving every day. 
+    I am actively studying front-end and back-end technologies, 
+    building projects, and expanding my skills to achieve my goal of becoming a proficient web developer`;
 
   onChangeShow(): void {
     this.isShowen = !this.isShowen;
