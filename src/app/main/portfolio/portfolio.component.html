@@ -6,19 +6,8 @@
             <img class="self-end" src="{{video.img_src}}" alt="{{video.name}}">
         </figure>
     </div>
-    <div class="text-[#EFE6DD] font-bold about-me-text">
-        <p class="hidden md:block">{{aboutProject}}</p>
-        <div class="block md:hidden">
-            <p *ngIf="aboutProject.length < 230">{{aboutProject}}</p>
-            <p *ngIf="aboutProject.length > 230 && !isShowen">
-                {{aboutProject.slice(0,230)}}...
-                <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show more) </button>
-            </p>
-            <p *ngIf="aboutProject.length > 230 && isShowen">
-                {{aboutProject}}
-                <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show less) </button>
-            </p>
-        </div>
+    <div>
+        <app-show-more [showText]="aboutProject" [showTextLength]="231"></app-show-more>
     </div>
     <div class=" text-[#fff8] grid md:grid md:grid-cols-2  gap-7">
         <details class="md:hidden block rounded-md border border-[#BB4430] h-fit px-3 hover:cursor-pointer">

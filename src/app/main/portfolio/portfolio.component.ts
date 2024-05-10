@@ -23,9 +23,6 @@ export class PortfolioComponent {
     { id: 4, name: 'Calculations page with updating warehouse inventory', img_src: 'assets/images/cetvrta.png' },
   ];
 
-  isShowen: boolean = false;
-  isOpen: boolean = false;
-
   aboutProject: string = `
     This project has been created for demonstration purposes to showcase my abilities and provide practical insight into my work.
     It is designed for use via web browsers, and I have used Angular 16 to create the user interface. 
@@ -34,13 +31,7 @@ export class PortfolioComponent {
     I plan to further refine and develop more advanced projects that reflect my professional growth.
   `;
 
-  onChangeShow(): void {
-    this.isShowen = !this.isShowen;
-  }
-
-  onShowMore(): void {
-    this.isOpen = !this.isOpen
-  }
+  
 
   
   

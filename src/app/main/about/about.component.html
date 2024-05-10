@@ -1,21 +1,8 @@
 <div class="grid grid-rows-[auto,1fr] h-full w-full p-5 gap-3">
     <h2 class="text-center text-[#BB4430] text-4xl font-bold">About me</h2>
     <div class="flex flex-col gap-5 ">
-        <div class="mb-5 mt-5 about-me-text  font-bold text-[#EFE6DD]  rounded-xl ">
-            <p class="hidden md:block">
-               {{aboutMeText}}
-            </p>
-            <div class="block md:hidden">
-                <p *ngIf="aboutMeText.length < 230">{{aboutMeText}}</p>
-                <p *ngIf="aboutMeText.length > 230 && !isShowen">
-                    {{aboutMeText.slice(0,230)}}...
-                    <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show more) </button>
-                </p>
-                <p *ngIf="aboutMeText.length > 230 && isShowen">
-                    {{aboutMeText}}
-                    <button class="text-[#BB4430]" (click)="onChangeShow()"> (Show less) </button>
-                </p>
-            </div>
+        <div>
+            <app-show-more [showText]="aboutMeText" [showTextLength]="225"></app-show-more>
         </div>
         <div class="flex flex-col gap-3 text-[#fff8]">
             <details class="grid grid-rows-[auto,1fr] border border-[#BB4430]  p-3 rounded-xl text-[#EFE6DD] shadow shadow-black">
