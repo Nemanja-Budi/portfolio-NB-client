@@ -35,16 +35,22 @@ export class ContactFormComponent {
     const newContact = new Contact(this.contactForm.value);
     this.mainService.createContact(newContact).subscribe({
       next: (response) => {
-        console.log(response);
         sucessModal?.showModal();
         this.name = response.nameOfCompany;
         this.contactForm.reset();
         setTimeout(() => {
           sucessModal?.close();
         }, 5000);
+      },
+      error: (error) => {
+        if(error.error.errors) {
+          this.errorMessages = error.error.errors;
+        }
+        else {
+          this.errorMessages.push(error.error);
+        }
       }
     });
-    console.log(newContact);
   }
 
   onCloseModal(sucessModal: HTMLDialogElement): void {

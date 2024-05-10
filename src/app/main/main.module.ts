@@ -10,21 +10,23 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { ContactSocialMediaComponent } from './contact/contact-social-media/contact-social-media.component';
 import { PortfolioVideoComponent } from './portfolio/portfolio-video/portfolio-video.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    AboutComponent,
-    PortfolioComponent,
-    ContactComponent,
-    ContactFormComponent,
-    ContactSocialMediaComponent,
-    PortfolioVideoComponent,
-  ],
-  imports: [
-    CommonModule,
-    MainRoutingModule,
-    AccountModule
-  ]
+    declarations: [
+        HomeComponent,
+        AboutComponent,
+        PortfolioComponent,
+        ContactComponent,
+        ContactFormComponent,
+        ContactSocialMediaComponent,
+        PortfolioVideoComponent,
+    ],
+    imports: [
+        CommonModule,
+        MainRoutingModule,
+        AccountModule,
+        SharedModule
+    ]
 })
 export class MainModule { }
