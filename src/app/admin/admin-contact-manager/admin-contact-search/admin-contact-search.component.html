@@ -1,6 +1,14 @@
 <div class="grid grid-cols-3 md:grid-cols-2 gap-1">
-    <div>
-        <app-admin-show-items-per-page [isUser]="true"></app-admin-show-items-per-page>
+    <div class="flex items-center gap-3 flex-wrap">
+        <div class="text-[#fff8]">
+            <span (click)="onChangeSortDirection()" class="cursor-pointer flex items-center">
+                <i *ngIf="this.adminService.contactQuearyParamsSubject.value.isAscending" class="fa-solid fa-down-long fa-2x"></i>
+                <i *ngIf="!(this.adminService.contactQuearyParamsSubject.value.isAscending)" class="fa-solid fa-up-long fa-2x"></i>
+            </span>
+        </div>
+        <div>
+            <app-admin-show-items-per-page [isUser]="true"></app-admin-show-items-per-page>
+        </div>
     </div>
     <div class="w-full col-span-2 md:col-span-1 flex items-end">
     <input 
