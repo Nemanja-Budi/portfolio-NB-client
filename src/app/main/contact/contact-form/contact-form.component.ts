@@ -21,6 +21,8 @@ export class ContactFormComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.contactForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       nameOfCompany: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern('^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$')]],
       message: ['', Validators.required]
