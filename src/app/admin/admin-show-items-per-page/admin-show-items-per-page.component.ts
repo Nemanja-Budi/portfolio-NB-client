@@ -34,7 +34,7 @@ export class AdminShowItemsPerPageComponent {
       this.adminService.memberQuearyParamsSubject.next({
         ...this.adminService.memberQuearyParamsSubject.value,
         pageNumber: 1,
-        pageSize: this.itemsPerPage[0]
+        pageSize: this.itemsPerPage[1]
       });
     } else {
       this.adminService.memberQuearyParamsSubject.next({
