@@ -158,8 +158,52 @@ body,
     flex-direction: column;
 }
 
+.active {
+    position: relative; /* Postavi relativnu poziciju kako bi se mogla koristiti 'right' svojstvo */
+    overflow: hidden; /* Sakrij prelazak linije preko granica elementa */
+    padding-bottom: 3px; /* Dodaj dodatni padding na dnu da bi se osiguralo da linija ima prostora za pomeranje */
+    color: #BB4430;
+}
+  
+  .active::after {
+    content: ""; /* Dodaj pseudo-element nakon glavnog elementa */
+    position: absolute; /* Postavi apsolutnu poziciju za liniju */
+    bottom: 0; /* Postavi liniju na dno roditeljskog elementa */
+    right: 0; /* Početna pozicija linije je skroz desno */
+    width: 100%; /* Početna širina linije je 100% (ceo element) */
+    height: 2px; /* Debljina linije */
+    background-color: #BB4430; /* Boja linije */
+    animation: moveLine 2s linear infinite; /* Pokreni animaciju 'moveLine' sa trajanjem od 8 sekundi, linearnim ubrzanjem i beskonačnim ponavljanjem */
+    /* Dodaj kašnjenje od 1 sekunde pre početka animacije */
+  }
 
+  @keyframes moveLine {
+    0% {
+      right: 0;
+      ; /* Početna pozicija linije je skroz desno */
+    }
+    50% {
+      right: 100%; /* Linija se kreće na sredini animacije do skroz levo */
+    }
+    50.01% {
+        opacity: 0; 
+      right: 100%; /* Linija zadržava poziciju skroz levo */
+    }
+    100% {
+      right: 0; /* Na kraju animacije, linija se kreće s leve strane ka desnoj */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .active{
+        width: fit-content;
+        color: rgb(165, 250, 53);
+    }
 
+    .active::after {
+        background-color: #a5fa35;
+    }
+  }
 
 @media (max-width: 930px) {
    
