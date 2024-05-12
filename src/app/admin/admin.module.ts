@@ -13,6 +13,8 @@ import { AdminContactPaganationComponent } from './admin-contact-manager/admin-c
 import { AdminUserPaganationComponent } from './admin-user-manager/admin-user-paganation/admin-user-paganation.component';
 import { AdminShowItemsPerPageComponent } from './admin-show-items-per-page/admin-show-items-per-page.component';
 import { SharedModule } from "../shared/shared.module";
+import { AdminContactTableComponent } from './admin-contact-manager/admin-contact-table/admin-contact-table.component';
+import { AdminUserTableComponent } from './admin-user-manager/admin-user-table/admin-user-table.component';
 
 
 
@@ -29,6 +31,8 @@ import { SharedModule } from "../shared/shared.module";
         AdminContactPaganationComponent,
         AdminUserPaganationComponent,
         AdminShowItemsPerPageComponent,
+        AdminContactTableComponent,
+        AdminUserTableComponent,
     ],
     exports: [UserHasRoleDirective],
     imports: [

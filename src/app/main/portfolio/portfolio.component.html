@@ -1,11 +1,6 @@
 <div class="flex flex-col justify-between h-full gap-5 md:gap-7 p-5 ">
     <h2 class="text-center text-[#BB4430] text-4xl font-bold">About project</h2>
-    <div class="shadow shadow-black bg-transparent/20 p-4 md:p-7 rounded-md grid md:grid md:grid-cols-2 xl:grid xl:grid-cols-4 xl:grid-rows-2 gap-4 md:gap-7 ">
-        <figure *ngFor="let video of videoArray"  routerLink="/main/portfolio/video/{{video.id}}" class="hover:cursor-pointer text-[#fff8]  bg-transparent/20 shadow shadow-black md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000    p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-[auto,1fr] gap-5 xl:gap-0 xl:grid-rows-2 ">
-            <figcaption class="text-center">{{video.name}}</figcaption>
-            <img class="self-end" src="{{video.img_src}}" alt="{{video.name}}">
-        </figure>
-    </div>
+
     <div>
         <app-show-more [showText]="aboutProject" [showTextLength]="231"></app-show-more>
     </div>
@@ -32,5 +27,11 @@
                 <p>Password: <span class="text-[#2272ff]">123456</span></p>
             </div>
         </div>
+    </div>
+    <div class="shadow shadow-black bg-transparent/20 p-4 md:p-7 rounded-md grid md:grid md:grid-cols-2 xl:grid xl:grid-cols-4 xl:grid-rows-2 gap-4 md:gap-7 ">
+        <figure *ngFor="let video of videoArray"  routerLink="/main/portfolio/video/{{video.id}}" class="hover:cursor-pointer text-[#fff8]  bg-transparent/20 shadow shadow-black md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000    p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-[auto,1fr] gap-5 xl:gap-0 xl:grid-rows-2 ">
+            <figcaption class="text-center">{{video.name}}</figcaption>
+            <img class="self-end" src="{{video.img_src}}" alt="{{video.name}}">
+        </figure>
     </div>
 </div>

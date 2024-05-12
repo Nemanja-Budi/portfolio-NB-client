@@ -11,6 +11,15 @@ export class AdminShowItemsPerPageComponent {
   @Input() isUser: boolean = false;
   adminService: AdminService = inject(AdminService);
   itemsPerPage: number[] = [5,10,15];
+  isAscending: boolean = this.adminService.memberQuearyParamsSubject.value.isAscending;
+
+  onChangeSortDirection(): void {
+    this.isAscending = !this.isAscending;
+    this.adminService.memberQuearyParamsSubject.next({
+      ...this.adminService.memberQuearyParamsSubject.value,
+      isAscending: this.isAscending
+    });
+  }
 
   onChangeItemPerPage(item: number): void {
     if(!this.isUser) {

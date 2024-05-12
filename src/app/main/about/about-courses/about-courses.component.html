@@ -1,0 +1,19 @@
+<details class="grid grid-rows-[auto,1fr] border border-[#BB4430]  p-3 rounded-xl  break-words ">
+    <summary class=" text-[#BB4430] text-xl  cursor-pointer">Courses</summary>
+    <div class="grid grid-cols-2 gap-3 mt-3">
+        <div class="flex flex-col gap-2">
+            <h5 class="text-center  text-lg text-[#fff8]">Udemy</h5>
+            <ng-container *ngFor="let udemyCourse of udemyCourses">
+                <p class="flex flex-col text-[#EFE6DD]">{{udemyCourse.name}} <a class="text-[#2272ff]" target="_blank" href="{{udemyCourse.link}}">{{udemyCourse.link}}</a></p>
+            </ng-container>
+        </div>
+        <div class="flex flex-col gap-2">
+            <ng-container *ngFor="let otherCourses of otherCourses">
+                <div class="flex flex-col gap-2">
+                    <h5 class="text-center  text-lg text-[#fff8]">{{otherCourses.headline}}</h5>
+                    <p class="flex flex-col text-[#EFE6DD]">{{otherCourses.name}} <a class="text-[#2272ff]" target="_blank" href="{{otherCourses.link}}">{{otherCourses.link}}</a></p>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</details>

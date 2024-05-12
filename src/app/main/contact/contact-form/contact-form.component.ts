@@ -39,8 +39,8 @@ export class ContactFormComponent {
         this.name = response.nameOfCompany;
         this.contactForm.reset();
         setTimeout(() => {
-          sucessModal?.close();
-        }, 5000);
+          // sucessModal?.close();
+        }, 15000);
       },
       error: (error) => {
         if(error.error.errors) {

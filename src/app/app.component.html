@@ -1,12 +1,14 @@
-<div class="grid grid-rows-[auto,1fr,auto] h-[100dvh] ">
+<div class="grid grid-rows-[auto,1fr] h-[100dvh] ">
   <div class=" bg-transparent/60">
     <app-header></app-header>
   </div>
-  <div class="w-full md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[75%] mx-auto   md:border-r-2 md:border-l-2 md:border-transparent/60">
-      <router-outlet></router-outlet>
-  </div>
-  <div class="p-3  bg-transparent/60">
-    <app-footer></app-footer>
+  <div class="overflow-auto grid grid-rows-[1fr,auto]">
+    <div class="w-full md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[75%] mx-auto bg-slate-600/10  md:border-r-2 md:border-l-2 md:border-transparent/60">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="p-3  bg-transparent/60">
+      <app-footer></app-footer>
+    </div>
   </div>
 </div>
 

@@ -11,6 +11,10 @@ import { ContactFormComponent } from './contact/contact-form/contact-form.compon
 import { ContactSocialMediaComponent } from './contact/contact-social-media/contact-social-media.component';
 import { PortfolioVideoComponent } from './portfolio/portfolio-video/portfolio-video.component';
 import { SharedModule } from "../shared/shared.module";
+import { AboutEducationComponent } from './about/about-education/about-education.component';
+import { AboutCoursesComponent } from './about/about-courses/about-courses.component';
+import { AboutSkilsComponent } from './about/about-skils/about-skils.component';
+import { AboutAdditionalSkillsComponent } from './about/about-additional-skills/about-additional-skills.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +25,10 @@ import { SharedModule } from "../shared/shared.module";
         ContactFormComponent,
         ContactSocialMediaComponent,
         PortfolioVideoComponent,
+        AboutEducationComponent,
+        AboutCoursesComponent,
+        AboutSkilsComponent,
+        AboutAdditionalSkillsComponent,
     ],
     imports: [
         CommonModule,

@@ -16,7 +16,6 @@ export class AdminUserSearchComponent {
 
   adminService: AdminService = inject(AdminService);
 
-  isAscending: boolean = this.adminService.memberQuearyParamsSubject.value.isAscending;
   placeHolderValue: string = 'firstname'
   selectValues: MemberSelect[] = [
     {searchTerm: "First name", searchValue: "firstname" },
@@ -42,11 +41,5 @@ export class AdminUserSearchComponent {
     });
   }
   
-  onChangeSortDirection(): void {
-    this.isAscending = !this.isAscending;
-    this.adminService.memberQuearyParamsSubject.next({
-      ...this.adminService.memberQuearyParamsSubject.value,
-      isAscending: this.isAscending
-    });
-  }
+  
 }

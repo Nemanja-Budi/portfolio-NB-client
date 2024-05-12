@@ -1,0 +1,47 @@
+<table class="w-full md:bg-transparent/20 md:shadow md:shadow-black rounded-xl text-[#fff8]">
+    <thead class="text-[#BB4430] rounded-2xl md:border-b-2 md:border-b-[#BB4430]">
+      <tr class="">
+        <th class="th-custom2 p-3 text-left ">Br.</th>
+        <th class="th-custom2 px-0 py-1 text-left ">Ime</th>
+        <th class="th-custom2 px-1 py-1 text-left ">Prezime</th>
+        <th class="th-custom2 px-0 py-1 text-left ">Firma</th>
+        <th class="th-custom2 px-0 py-1 text-left">Email</th>
+        <th class="th-custom2 px-0 py-1 text-center">Poruka</th>
+        <th *appUserHasRole="['Admin']" class="th-custom2 px-0 py-1 text-start"></th>
+      </tr>
+    </thead>
+    <tbody class=" ">
+      <td *ngIf="contactsLength == 0" colspan="5"><p class="text-center text-red-500 p-2">Nema rezultata za zadatu pretragu</p></td>
+      <ng-container
+        *ngFor="let contact of contacts | async; let i = index">
+        <tr class="group  md:hover:bg-[#BB4430]/10 shadow shadow-black ">
+          <td data-cell="br" class="td-custom2 text-[#BB4430] font-bold p-3 text-start md:text-center w-9">{{ (adminService.contactQuearyParamsSubject.value.pageNumber - 1) * adminService.contactQuearyParamsSubject.value.pageSize + i + 1 }}.</td>
+          <td data-cell="ime" class="td-custom2 px-1 py-1 text-left  break-words break-letters">{{ contact.firstName| titlecase }}</td>
+          <td data-cell="prezime" class="td-custom2 px-1 py-1 text-left  break-words break-letters">{{ contact.lastName | titlecase }}</td>
+          <td data-cell="ime firme" class="td-custom2 px-1 py-1 text-left  break-words break-letters">{{ contact.nameOfCompany | titlecase }}</td>
+          <td data-cell="email" class="td-custom2 px-1 py-1 text-left  break-letters ">{{ contact.email}}</td>
+          <td data-cell="poruka" class="td-custom2 px-1 py-1  break-words break-letters">{{ contact.message | titlecase }}</td>
+          <td 
+            *appUserHasRole="['Admin']" 
+            data-cell="delete" 
+            class="td-custom2 px-1 py-1">
+              <button 
+                (click)="onDeleteContact(deleteContact, contact.id)"
+                class="flex text-[#BB4430]">
+                Delete
+              </button>
+            </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <dialog #deleteContact class="modal">
+  <div class="flex flex-col gap-3">
+      <h2 class="text-center">Are you sure you want to delete this contact?</h2>
+      <div class="grid grid-cols-2 gap-2">
+          <button class="bg-[#4BB543] rounded-md text-white" (click)="onConfirm()">Yes</button>
+          <button class="bg-red-600 rounded-md text-white" (click)="onCloseModal()">Close</button>
+      </div>
+  </div>
+</dialog>

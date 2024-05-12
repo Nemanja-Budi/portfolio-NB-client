@@ -1,0 +1,23 @@
+<details class="border border-[#BB4430] p-3 rounded-xl text-[#EFE6DD] ">
+    <summary class="text-[#BB4430] text-xl  cursor-pointer">Skills</summary>
+    <div class="grid grid-cols-2 gap-3">
+        <div class="flex flex-col gap-1">
+            <h4 class="text-center text-[#fff8] text-xl">Front-end</h4>
+            <ng-container *ngFor="let fSkills of frontEndSkills">
+                <div class="flex flex-col md:grid md:grid-cols-4 md:items-center">
+                    <p class="text-[#EFE6DD]">{{fSkills.name}}</p>
+                    <progress class="col-span-3 w-full custom-progress" value="{{fSkills.progressValue}}" max="{{maxProgressValue}}"></progress>
+                </div>
+            </ng-container>
+        </div>
+        <div class="flex flex-col gap-1">
+            <h4 class="text-center text-[#fff8] text-xl">Back-end</h4>
+            <ng-container *ngFor="let bSkills of backEndSkills">
+                <div class="flex flex-col md:gap-2 md:grid md:grid-cols-4 md:items-center">
+                    <p class="text-[#EFE6DD]">{{bSkills.name}}</p>
+                    <progress class="col-span-3 w-full custom-progress" value="{{bSkills.progressValue}}" max="{{maxProgressValue}}"></progress>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</details>

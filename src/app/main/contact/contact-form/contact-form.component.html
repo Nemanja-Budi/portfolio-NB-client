@@ -58,9 +58,9 @@
 </div>
 
 <dialog #sucessModal class="modal">
-    <div class="flex flex-col gap-3">
-        <h2 class="text-center">{{name}} Uspesno ste prosledili poruku</h2>
-        <div class="flex justify-center items-center">
+    <div class="flex flex-col justify-center items-center gap-3">
+        <h2 class="text-center flex flex-col gap-3"><span class="text-red-600 font-bold text-xl">{{name}}</span>Uspesno ste prosledili poruku</h2>
+        <div class="self-center">
             <button (click)="onCloseModal(sucessModal)" class="bg-red-600 text-white px-3 py-2 rounded-md">Close</button>
         </div>
     </div>

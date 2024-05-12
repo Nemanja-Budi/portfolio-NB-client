@@ -1,0 +1,9 @@
+<details class="grid grid-rows-[auto,1fr] border border-[#BB4430]  p-3 rounded-xl text-[#EFE6DD] shadow shadow-black">
+    <summary class="text-[#BB4430]  text-xl cursor-pointer">Education</summary>
+    <div class="grid grid-cols-2 gap-2 mt-2 ">
+        <div *ngFor="let education of educationArray">
+            <p>{{education.name}}</p>
+            <p>{{education.studyProgram}}</p>
+        </div>
+    </div>
+</details>

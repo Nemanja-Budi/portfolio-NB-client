@@ -1,6 +1,12 @@
-<div class="flex flex-col md:flex md:flex-row gap-3 md:items-center">
+<div class="flex flex-col md:flex md:flex-row gap-3 md:items-center flex-wrap">
     <!-- <p class="text-[#fff8]">Show per page</p> -->
-    <div *ngIf="!isUser" class="flex w-full md:w-[48%] gap-3">
+    <div *ngIf="!isUser" class="flex w-full gap-3">
+        <div class="flex items-center justify-center text-[#fff8] shadow shadow-black bg-transparent/20 w-10 aspect-square p-1 rounded-md">
+            <span (click)="onChangeSortDirection()" class="cursor-pointer flex justify-center items-center">
+                <i *ngIf="this.adminService.memberQuearyParamsSubject.value.isAscending" class="fa-solid fa-down-long "></i>
+                <i *ngIf="!(this.adminService.memberQuearyParamsSubject.value.isAscending)" class="fa-solid fa-up-long "></i>
+            </span>
+        </div>
         <ng-container *ngFor="let item of itemsPerPage">
             <button *ngIf="item !== adminService.memberQuearyParamsSubject.value.pageSize" class="shadow shadow-black bg-transparent/20 text-[#fff8] w-10 aspect-square p-1 rounded-md"  (click)="onChangeItemPerPage(item)">{{item}}</button>
         </ng-container>
