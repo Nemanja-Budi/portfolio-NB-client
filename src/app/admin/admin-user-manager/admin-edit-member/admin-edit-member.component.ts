@@ -25,8 +25,6 @@ export class AdminEditMemberComponent {
   formBuilder: FormBuilder = inject(FormBuilder);
   router: Router = inject(Router);
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
-  // sharedService: SharedService = inject(SharedService);
-
 
   onGetMember(id: string): void {
     this.adminService.getMember(id).subscribe({
@@ -99,7 +97,6 @@ export class AdminEditMemberComponent {
 
     this.adminService.addEditMember(this.memberForm.value).subscribe({
       next: (response: any) => {
-        // this.sharedService.showNotifications(true, response.value.title, response.value.message);
         this.router.navigateByUrl('/admin/user-manager');
       },
       error: (error) => {
@@ -111,7 +108,6 @@ export class AdminEditMemberComponent {
         }
       }
     });
-
   }
 
   ngOnInit(): void {

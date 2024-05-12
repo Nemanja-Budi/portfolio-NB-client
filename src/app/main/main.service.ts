@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Contact } from './models/contact.model';
 import { environment } from 'src/environments/environment.development';
@@ -10,9 +10,6 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class MainService {
-
-
-  isOpen: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient) { }
  

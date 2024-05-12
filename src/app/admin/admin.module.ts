@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { AdminContactManagerComponent } from './admin-contact-manager/admin-contact-manager.component';
 import { AdminUserManagerComponent } from './admin-user-manager/admin-user-manager.component';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -15,8 +16,6 @@ import { AdminShowItemsPerPageComponent } from './admin-show-items-per-page/admi
 import { SharedModule } from "../shared/shared.module";
 import { AdminContactTableComponent } from './admin-contact-manager/admin-contact-table/admin-contact-table.component';
 import { AdminUserTableComponent } from './admin-user-manager/admin-user-table/admin-user-table.component';
-
-
 
 
 @NgModule({

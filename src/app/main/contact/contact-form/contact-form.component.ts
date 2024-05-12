@@ -16,6 +16,7 @@ export class ContactFormComponent {
   submited: boolean = false;
   errorMessages: string[] = [];
   name: string = '';
+  
   mainService: MainService = inject(MainService);
   router: Router = inject(Router);
 
@@ -57,5 +58,4 @@ export class ContactFormComponent {
     sucessModal?.close();
   }
 
-  
 }

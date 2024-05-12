@@ -1,8 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { Observable, map } from 'rxjs';
-
-import { Contact } from 'src/app/main/models/contact.model';
-import { AdminService } from '../admin.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin-contact-manager',

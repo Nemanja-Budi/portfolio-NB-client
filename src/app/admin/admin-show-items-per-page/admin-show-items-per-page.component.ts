@@ -9,8 +9,9 @@ import { AdminService } from '../admin.service';
 export class AdminShowItemsPerPageComponent {
 
   @Input() isUser: boolean = false;
-  adminService: AdminService = inject(AdminService);
   itemsPerPage: number[] = [5,10,15];
+
+  adminService: AdminService = inject(AdminService);
   isAscending: boolean = this.adminService.memberQuearyParamsSubject.value.isAscending;
 
   onChangeSortDirection(): void {

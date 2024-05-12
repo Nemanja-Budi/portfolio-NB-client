@@ -49,15 +49,11 @@ export class LoginComponent {
   onLogin(): void {
     this.submited = true;
     this.errorMessages = [];
-    console.log(this.loginForm.value);
-
     if(!this.loginForm.valid) return;
     const newLogin = new Login(this.loginForm.value);
-
     this.accountService.login(newLogin).subscribe({
       next: (response: any) => {
         if(this.returnUrl) {
-          console.log(response);
           this.router.navigateByUrl(this.returnUrl);
         } else {
           this.router.navigateByUrl('/admin');
@@ -74,7 +70,4 @@ export class LoginComponent {
     });
   }
 
-  resendEmailConfirmationLink(): void {
-    this.router.navigateByUrl('/account/send-email/resend-email-confirmation-link');
-  }
 }

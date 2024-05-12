@@ -6,7 +6,6 @@ export type CustomImage = {
   img_src: string;
 }
 
-
 @Component({
   selector: 'app-portfolio-image',
   templateUrl: './portfolio-image.component.html',

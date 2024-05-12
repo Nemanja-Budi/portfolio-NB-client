@@ -9,7 +9,6 @@ import { AccountService } from './account/account.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'client-portfolio';
 
   accountService: AccountService = inject(AccountService);
 
