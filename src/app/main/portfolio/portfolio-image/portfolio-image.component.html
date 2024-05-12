@@ -1,0 +1,6 @@
+<div class="shadow shadow-black bg-transparent/20 p-4 md:p-7 rounded-md grid md:grid md:grid-cols-2 xl:grid xl:grid-cols-4 xl:grid-rows-2 gap-4 md:gap-7 ">
+    <figure *ngFor="let image of imageArray"  routerLink="/main/portfolio/video/{{image.id}}" class="hover:cursor-pointer text-[#fff8]  bg-transparent/20 shadow shadow-black md:hover:flex md:hover:flex-col-reverse hover:justify-between hover:bg-[#BB4430] transition duration-1000    p-2 rounded-md hover:text-[#EFE6DD]  row-span-2 grid grid-rows-[auto,1fr] gap-5 xl:gap-0 xl:grid-rows-2 ">
+        <figcaption class="text-center">{{image.name}}</figcaption>
+        <img class="self-end" src="{{image.img_src}}" alt="{{image.name}}">
+    </figure>
+</div>

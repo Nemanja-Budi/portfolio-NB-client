@@ -15,6 +15,8 @@ import { AboutEducationComponent } from './about/about-education/about-education
 import { AboutCoursesComponent } from './about/about-courses/about-courses.component';
 import { AboutSkilsComponent } from './about/about-skils/about-skils.component';
 import { AboutAdditionalSkillsComponent } from './about/about-additional-skills/about-additional-skills.component';
+import { PortfolioProjectInfoComponent } from './portfolio/portfolio-project-info/portfolio-project-info.component';
+import { PortfolioImageComponent } from './portfolio/portfolio-image/portfolio-image.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +31,8 @@ import { AboutAdditionalSkillsComponent } from './about/about-additional-skills/
         AboutCoursesComponent,
         AboutSkilsComponent,
         AboutAdditionalSkillsComponent,
+        PortfolioProjectInfoComponent,
+        PortfolioImageComponent,
     ],
     imports: [
         CommonModule,
