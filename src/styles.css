@@ -322,6 +322,23 @@ body,
 }
 
 
+.modalMessage::backdrop {
+  background: hsla(0, 0%, 100%, 0.1);
+      backdrop-filter: blur(0.1rem);
+}
+
+.modalMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(195, 197, 195);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80%;
+}
+
 details[open] summary ~ * {
     animation: sweep .5s ease-in-out;
 }

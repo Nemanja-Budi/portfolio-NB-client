@@ -13,8 +13,8 @@ export class AdminContactTableComponent {
     adminService: AdminService = inject(AdminService);
 
     contactToDelete: Contact | undefined;
-    modalDialog: HTMLDialogElement | undefined;
-    
+    deleteModalDialog: HTMLDialogElement | undefined;
+    contactToShow: Contact = new Contact();
     contactsLength!: number;
     isAscending: boolean = this.adminService.contactQuearyParamsSubject.value.isAscending;
   
@@ -40,14 +40,18 @@ export class AdminContactTableComponent {
               ...this.adminService.contactQuearyParamsSubject.value,
               pageNumber: 1
             });
-            this.modalDialog?.close();
+            this.deleteModalDialog?.close();
           }
         });
       }
     }
   
-    onCloseModal(): void {
-      this.modalDialog?.close();
+    onCloseDeleteModal(): void {
+      this.deleteModalDialog?.close();
+    }
+
+    onCloseMessageModal(messageModal: HTMLDialogElement): void {
+      messageModal?.close();
     }
   
     onDeleteContact(deletedContact: HTMLDialogElement, contact_id: string): void {
@@ -56,7 +60,17 @@ export class AdminContactTableComponent {
         next: (contact) => {
           if(!contact) return;
           this.contactToDelete = contact;
-          this.modalDialog = deletedContact;
+          this.deleteModalDialog = deletedContact;
+        }
+      });
+    }
+
+    openMessageModal(messageModal:HTMLDialogElement, id: string ): void {
+      messageModal.showModal();
+      this.findContact(id).subscribe({
+        next:(response) => {
+          if(!response) return undefined;
+          this.contactToShow = response;
         }
       });
     }
